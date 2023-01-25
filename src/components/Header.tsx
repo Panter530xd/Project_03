@@ -8,6 +8,8 @@ import MenuIcon from "/public/images/Icons/fluent-emoji-high-contrast_fork-and-k
 import ForumIcon from "/public/images/Icons/Vector.svg";
 import UserIcon from "/public/images/Icons/mdi_user-alert-outline.svg";
 import ShopingCard from "/public/images/Icons/korpa.svg";
+import Logo from "/public/images/Icons/logo-jadi-domasno 1.svg";
+import SearchIcon from "/public/images/Icons/ei_search.svg";
 
 export default function Header() {
   const { asPath } = useRouter();
@@ -16,13 +18,7 @@ export default function Header() {
       <ul className="flex items-center my-auto pb-3 pr-52">
         <li className="ml-8 mr-8 ">
           <Link href="/" className="text-OrangePrimary text-lg">
-            <Image
-              className="mx-auto"
-              src="/images/icons/logo-jadi-domasno 1.svg"
-              width={48}
-              height={48}
-              alt="Logo"
-            />
+            <Logo className="mx-auto" width={48} height={48} />
             Јади Домашно
           </Link>
         </li>
@@ -130,13 +126,7 @@ export default function Header() {
                 type="submit"
                 className="p-1 focus:outline-none focus:shadow-outline"
               >
-                <Image
-                  className="mx-auto"
-                  src="/images/icons/ei_search.svg"
-                  width={28}
-                  height={28}
-                  alt="Search Icon"
-                />
+                <SearchIcon className="mx-auto" width={28} height={28} />
               </button>
             </span>
             <input
