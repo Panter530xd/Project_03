@@ -17,7 +17,7 @@ export default function Header() {
   const { asPath } = useRouter();
   const [navbar, setNavbar] = useState(false);
   return (
-    <nav className="bg-[#F1F1F1] shadow-xl p-2 flex xl:min-w-full min-w-max xl:items-center xl:justify-center">
+    <nav className="bg-[#F1F1F1] shadow-xl p-2 flex xl:min-w-full min-w-max xl:items-center xl:justify-center overflow-hidden">
       <Link
         href="/"
         className="text-OrangePrimary xl:text-lg text-xs xl:ml-5 xl:mr-8"
