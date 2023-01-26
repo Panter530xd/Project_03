@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Image from "next/image";
 import FirstIcon from "/public/images/Icons/Group 13934.svg";
 import SecondIcon from "/public/images/Icons/mdi_cook.svg";
 import OfferIcon from "/public/images/Icons/Group 13930.svg";
@@ -18,7 +17,7 @@ export default function Header() {
   const { asPath } = useRouter();
   const [navbar, setNavbar] = useState(false);
   return (
-    <nav className="bg-[#F1F1F1] shadow-xl p-2 flex xl:min-w-full min-w-max xl:justify-center">
+    <nav className="bg-[#F1F1F1] shadow-xl p-2 flex xl:min-w-full min-w-max xl:items-center xl:justify-center">
       <Link
         href="/"
         className="text-OrangePrimary xl:text-lg text-xs xl:ml-5 xl:mr-8"
@@ -27,11 +26,11 @@ export default function Header() {
         Јади Домашно
       </Link>
       <div
-        className={`flex-1 justify-self-center mt-36 md:block  ${
-          navbar ? "md:p-0 block pb-40" : "hidden"
+        className={`mt-36 md:mt-0 xl:mt-0 md:block  ${
+          navbar ? "md:p-0 block pb-40 md:pb-0 xl:pb-0" : "hidden"
         }`}
       >
-        <ul className="h-screen md:h-auto justify-center md:flex text-center">
+        <ul className="h-screen md:h-auto justify-center md:flex text-center xl:items-center">
           <li className="mr-4 pt-3">
             <Link
               href="/"
@@ -129,7 +128,7 @@ export default function Header() {
           </li>
         </ul>
       </div>
-      <div className="flex justify-center shedow-xl xl:pr-20 pt-4 xl:pt-0">
+      <div className="flex justify-center shedow-xl xl:pr-20 xl:pl-56 pt-4 xl:pt-0">
         <form className="shedow-xl">
           <div className="relative text-gray-600 focus-within:text-gray-400">
             <span className="absolute inset-y-0 left-0 flex items-center pl-2">
@@ -187,7 +186,7 @@ export default function Header() {
         </li>
       </ul>
 
-      <div className="lg:hidden pt-4 xl:pt-0">
+      <div className="md:hidden pt-4 xl:pt-0">
         <button
           className=" text-FooterMainColor outline-none"
           onClick={() => setNavbar(!navbar)}
