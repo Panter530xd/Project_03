@@ -15,6 +15,7 @@ module.exports = {
         BackgroundColor: "#FFF8F0",
         hederColor: "#7C7C7C",
         active: "#FE724D",
+        foterText: "#D7D7D7",
       },
     },
   },

@@ -1,6 +1,7 @@
 import { Roboto } from "@next/font/google";
 import { Bad_Script } from "@next/font/google";
 import Header from "./Header";
+import Footer from "./Footer";
 const roboto = Roboto({
   subsets: ["cyrillic"],
   weight: ["400", "700"],
@@ -26,6 +27,7 @@ export default function Layout({ children, ...props }: Props) {
       >
         {children}
       </main>
+      <Footer />
     </>
   );
 }
