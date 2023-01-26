@@ -145,13 +145,13 @@ export default function Header() {
       </div>
 
       <ul className="flex">
-        <li className="xl:mr-4 mr-2 ">
+        <li className="xl:mr-4 mr-1">
           <Link
             href="/users"
             className={`text-hederColor xl:text-lg text-xs ${
               asPath === "/users"
                 ? "text-active  fill-active stroke-active stroke-2"
-                : undefined
+                : ""
             }`}
           >
             <UserIcon
@@ -183,7 +183,7 @@ export default function Header() {
 
       <div className="lg:hidden">
         <button
-          className=" text-FooterMainColor  rounded-md outline-none "
+          className=" text-FooterMainColor outline-none "
           onClick={() => setNavbar(!navbar)}
         >
           {navbar ? (
