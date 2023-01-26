@@ -10,23 +10,28 @@ import UserIcon from "/public/images/Icons/mdi_user-alert-outline.svg";
 import ShopingCard from "/public/images/Icons/korpa.svg";
 import Logo from "/public/images/Icons/logo-jadi-domasno 1.svg";
 import SearchIcon from "/public/images/Icons/ei_search.svg";
+import HamburgerIcon from "/public/images/Icons/bars-solid.svg";
+import CanselIcon from "/public/images/Icons/xmark-solid.svg";
+import { useState } from "react";
 
 export default function Header() {
   const { asPath } = useRouter();
+  const [navbar, setNavbar] = useState(false);
   return (
-    <nav className="bg-[#F1F1F1] shadow-xl w-full p-2 flex">
-      <ul className="flex items-center my-auto pb-3 pr-52">
-        <li className="ml-8 mr-8 ">
-          <Link href="/" className="text-OrangePrimary text-lg">
-            <Logo className="mx-auto" width={48} height={48} />
-            Јади Домашно
-          </Link>
-        </li>
+    <nav className="bg-[#F1F1F1] shadow-xl  p-2 flex w-screen xl:min-w-full items-center justify-center">
+      <Link
+        href="/"
+        className="text-OrangePrimary xl:text-lg text-sm xl:ml-8 xl:mr-8"
+      >
+        <Logo className="mx-auto xl:w-12 xl:h-12 " width={42} height={42} />
+        Јади Домашно
+      </Link>
+      <ul className="xl:flex xl:items-center pb-3 pr-52 sm:flex-wrap hidden">
         <li className="mr-4 pt-3">
           <Link
             href="/"
             className={`text-hederColor text-lg ${
-              asPath === "/" ? "text-active" : undefined
+              asPath === "/" ? "text-active" : ""
             }`}
           >
             <FirstIcon
@@ -45,7 +50,7 @@ export default function Header() {
           <Link
             href="/cooks"
             className={`text-hederColor text-lg ${
-              asPath === "/cooks" ? "text-active" : undefined
+              asPath === "/cooks" ? "text-active" : ""
             }`}
           >
             <SecondIcon
@@ -64,7 +69,7 @@ export default function Header() {
           <Link
             href="/offer"
             className={`text-hederColor text-lg ${
-              asPath === "/offer" ? "text-active" : undefined
+              asPath === "/offer" ? "text-active" : ""
             }`}
           >
             <OfferIcon
@@ -83,7 +88,7 @@ export default function Header() {
           <Link
             href="/menu"
             className={`text-hederColor text-lg ${
-              asPath === "/menu" ? "text-active" : undefined
+              asPath === "/menu" ? "text-active" : ""
             }`}
           >
             <MenuIcon
@@ -102,7 +107,7 @@ export default function Header() {
           <Link
             href="/forum"
             className={`text-hederColor text-lg ${
-              asPath === "/forum" ? "text-active" : undefined
+              asPath === "/forum" ? "text-active" : ""
             }`}
           >
             <ForumIcon
@@ -118,7 +123,7 @@ export default function Header() {
           </Link>
         </li>
       </ul>
-      <div className="flex items-center justify-center shedow-xl pr-20">
+      <div className="flex items-center justify-center shedow-xl xl:pr-20">
         <form className="shedow-xl">
           <div className="relative text-gray-600 focus-within:text-gray-400">
             <span className="absolute inset-y-0 left-0 flex items-center pl-2">
@@ -132,24 +137,24 @@ export default function Header() {
             <input
               type="search"
               name="q"
-              className="py-2 text-sm text-hederColor rounded-[20px] pl-10 border border-hederColor focus:outline-none focus:bg-white focus:text-gray-900 w-96 h-10"
+              className="py-2 text-sm text-hederColor rounded-[20px] pl-10 border border-hederColor focus:outline-none focus:bg-white focus:text-gray-900 xl:w-96 w-28 xl:h-10 placeholder:text-xs xl:placeholder:text-lg"
               placeholder="Пребарај..."
             />
           </div>
         </form>
       </div>
       <ul className="flex">
-        <li className="mr-4 pt-2">
+        <li className="xl:mr-4 mr-1 xl:pt-2">
           <Link
             href="/users"
-            className={`text-hederColor text-lg ${
+            className={`text-hederColor xl:text-lg text-sm ${
               asPath === "/users"
                 ? "text-active  fill-active stroke-active stroke-2"
                 : undefined
             }`}
           >
             <UserIcon
-              className={`mx-auto ${
+              className={`mx-auto xl:w-12 h-12 ${
                 asPath === "/users"
                   ? " fill-active stroke-active stroke-2"
                   : "fill-none"
@@ -160,7 +165,7 @@ export default function Header() {
             мој профил
           </Link>
         </li>
-        <li className="pt-5">
+        <li className="xl:pt-5 pt-2 mr-1">
           <Link href="/shopingcard">
             <ShopingCard
               className={`mx-auto ${
@@ -174,6 +179,23 @@ export default function Header() {
           </Link>
         </li>
       </ul>
+      <div className="md:hidden">
+        <button
+          className="p-2 text-FooterMainColor  rounded-md outline-none focus:border-gray-400 focus:border"
+          onClick={() => setNavbar(!navbar)}
+        >
+          {navbar ? (
+            <CanselIcon width={30} height={30} alt="logo" />
+          ) : (
+            <HamburgerIcon
+              width={30}
+              height={30}
+              alt="logo"
+              className="focus:border-none active:border-none"
+            />
+          )}
+        </button>
+      </div>
     </nav>
   );
 }
