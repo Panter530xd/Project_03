@@ -18,112 +18,118 @@ export default function Header() {
   const { asPath } = useRouter();
   const [navbar, setNavbar] = useState(false);
   return (
-    <nav className="bg-[#F1F1F1] shadow-xl  p-2 flex w-screen xl:min-w-full items-center justify-around xl:justify-center">
+    <nav className="bg-[#F1F1F1] shadow-xl p-2 flex xl:min-w-full min-w-max xl:justify-center">
       <Link
         href="/"
         className="text-OrangePrimary xl:text-lg text-xs xl:ml-5 xl:mr-8"
       >
-        <Logo className="mx-auto xl:w-12 xl:h-12 " width={42} height={42} />
+        <Logo className="mx-auto xl:w-12 xl:h-12" width={42} height={42} />
         Јади Домашно
       </Link>
-      <ul className="xl:flex xl:items-center pb-3 pr-52 sm:flex-wrap hidden">
-        <li className="mr-4 pt-3">
-          <Link
-            href="/"
-            className={`text-hederColor text-lg ${
-              asPath === "/" ? "text-active" : ""
-            }`}
-          >
-            <FirstIcon
-              className={`mx-auto ${
-                asPath === "/"
-                  ? "text-active fill-active stroke-active stroke-2"
-                  : "fill-none"
+      <div
+        className={`flex-1 justify-self-center mt-36 md:block  ${
+          navbar ? "md:p-0 block pb-40" : "hidden"
+        }`}
+      >
+        <ul className="h-screen md:h-auto justify-center md:flex text-center">
+          <li className="mr-4 pt-3">
+            <Link
+              href="/"
+              className={`text-hederColor text-lg ${
+                asPath === "/" ? "text-active" : ""
               }`}
-              width={39}
-              height={35}
-            />
-            Како функционира
-          </Link>
-        </li>
-        <li className="mr-4 pt-3">
-          <Link
-            href="/cooks"
-            className={`text-hederColor text-lg ${
-              asPath === "/cooks" ? "text-active" : ""
-            }`}
-          >
-            <SecondIcon
-              className={`mx-auto ${
-                asPath === "/cooks"
-                  ? "text-active fill-active stroke-active stroke-2"
-                  : "fill-none"
+            >
+              <FirstIcon
+                className={`mx-auto ${
+                  asPath === "/"
+                    ? "text-active fill-active stroke-active stroke-2"
+                    : "fill-none"
+                }`}
+                width={39}
+                height={35}
+              />
+              Како функционира
+            </Link>
+          </li>
+          <li className="mr-4 pt-3">
+            <Link
+              href="/cooks"
+              className={`text-hederColor text-lg ${
+                asPath === "/cooks" ? "text-active" : ""
               }`}
-              width={38}
-              height={38}
-            />
-            Готвачи
-          </Link>
-        </li>
-        <li className="mr-4 pt-3">
-          <Link
-            href="/offer"
-            className={`text-hederColor text-lg ${
-              asPath === "/offer" ? "text-active" : ""
-            }`}
-          >
-            <OfferIcon
-              className={`mx-auto ${
-                asPath === "/offer"
-                  ? "text-active fill-active stroke-active stroke-2"
-                  : "fill-none"
+            >
+              <SecondIcon
+                className={`mx-auto ${
+                  asPath === "/cooks"
+                    ? "text-active fill-active stroke-active stroke-2"
+                    : "fill-none"
+                }`}
+                width={38}
+                height={38}
+              />
+              Готвачи
+            </Link>
+          </li>
+          <li className="mr-4 pt-3">
+            <Link
+              href="/offer"
+              className={`text-hederColor text-lg ${
+                asPath === "/offer" ? "text-active" : ""
               }`}
-              width={35}
-              height={38.81}
-            />
-            Побарај понуда
-          </Link>
-        </li>
-        <li className="mr-4 pt-5">
-          <Link
-            href="/menu"
-            className={`text-hederColor text-lg ${
-              asPath === "/menu" ? "text-active" : ""
-            }`}
-          >
-            <MenuIcon
-              className={`mx-auto ${
-                asPath === "/menu"
-                  ? "text-active fill-active stroke-active stroke-2"
-                  : "fill-none"
+            >
+              <OfferIcon
+                className={`mx-auto ${
+                  asPath === "/offer"
+                    ? "text-active fill-active stroke-active stroke-2"
+                    : "fill-none"
+                }`}
+                width={35}
+                height={38.81}
+              />
+              Побарај понуда
+            </Link>
+          </li>
+          <li className="mr-4 pt-5">
+            <Link
+              href="/menu"
+              className={`text-hederColor text-lg ${
+                asPath === "/menu" ? "text-active" : ""
               }`}
-              width={36}
-              height={32}
-            />
-            Мени
-          </Link>
-        </li>
-        <li className="pt-5">
-          <Link
-            href="/forum"
-            className={`text-hederColor text-lg ${
-              asPath === "/forum" ? "text-active" : ""
-            }`}
-          >
-            <ForumIcon
-              className={`mx-auto ${
-                asPath === "/forum"
-                  ? " fill-active stroke-active stroke-2"
-                  : "fill-none"
+            >
+              <MenuIcon
+                className={`mx-auto ${
+                  asPath === "/menu"
+                    ? "text-active fill-active stroke-active stroke-2"
+                    : "fill-none"
+                }`}
+                width={36}
+                height={32}
+              />
+              Мени
+            </Link>
+          </li>
+          <li className="pt-5">
+            <Link
+              href="/forum"
+              className={`text-hederColor text-lg ${
+                asPath === "/forum" ? "text-active" : ""
               }`}
-              width={42.86}
-              height={30}
-            />
-            Форум
-          </Link>
-        </li>
-      </ul>
-      <div className="flex items-center justify-center shedow-xl xl:pr-20">
+            >
+              <ForumIcon
+                className={`mx-auto ${
+                  asPath === "/forum"
+                    ? " fill-active stroke-active stroke-2"
+                    : "fill-none"
+                }`}
+                width={42.86}
+                height={30}
+              />
+              Форум
+            </Link>
+          </li>
+        </ul>
+      </div>
+      <div className="flex justify-center shedow-xl xl:pr-20 pt-4 xl:pt-0">
         <form className="shedow-xl">
           <div className="relative text-gray-600 focus-within:text-gray-400">
             <span className="absolute inset-y-0 left-0 flex items-center pl-2">
@@ -181,9 +187,9 @@ export default function Header() {
         </li>
       </ul>
 
-      <div className="lg:hidden">
+      <div className="lg:hidden pt-4 xl:pt-0">
         <button
-          className=" text-FooterMainColor outline-none "
+          className=" text-FooterMainColor outline-none"
           onClick={() => setNavbar(!navbar)}
         >
           {navbar ? (
