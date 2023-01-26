@@ -28,7 +28,7 @@ export default function Header() {
       <div
         className={`mt-36 md:mt-0 xl:mt-0 md:block  ${
           navbar
-            ? "md:p-0 block pb-40 md:pb-0 xl:pb-0 overflow-hidden"
+            ? "md:p-0 block pb-40 md:pb-0 xl:pb-0 overflow-y-hidden"
             : "hidden"
         }`}
       >
