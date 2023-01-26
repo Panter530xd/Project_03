@@ -1,3 +1,6 @@
-export default function Cooks() {
-  return <h1 className="pt-5">Cooks For Test</h1>;
-}
+import { NextPage } from "next";
+
+const Cooks: NextPage = () => {
+  return <div className="pt-5">Cooks For Test</div>;
+};
+export default Cooks;
