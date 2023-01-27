@@ -1,9 +1,12 @@
 import Head from "next/head";
 import Image from "next/image";
-import LogoGolemo from "/public/images/Icons/logo-golemo.svg";
+import LogoBig from "/public/images/Icons/logo-golemo.svg";
 import CircleSmall from "/public/images/Icons/krug-pogolem.svg";
 import CircleBig from "/public/images/Icons/krug-pomal.svg";
 import Link from "next/link";
+import CardModal from "@/components/CardModal";
+import CheckIcon from "/public/images/Icons/inputcheck.svg";
+import LocationIcon from "/public/images/Icons/inputlocation.svg";
 export default function Home() {
   return (
     <>
@@ -13,112 +16,134 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <body className=" bg-BackgroundColor relative">
-        <section className="xl:flex xl:justify-center items-center xl:pt-40 xl:pb-40 pb-10 pt-10">
-          <Image
-            src="/images/foood2.png"
-            alt="bg-image"
-            className="absolute right-0 top-1 z-0 hidden lg:block"
-            width={990}
-            height={1037}
-          />
-          <CircleSmall className="absolute right-0 top-[400px] z-0 hidden lg:block" />
-          <CircleBig className="absolute right-0 top-[650px] z-0 hidden lg:block" />
 
-          <div>
-            <div className="flex justify-center items-center">
-              <LogoGolemo width={105} height={112} />
-              <h1 className="xl:text-6xl text-OrangeSecondary xl:font-outline ">
-                Јади домашно
-              </h1>
-            </div>
-            <div className="flex items-center justify-center pt-5">
-              <hr className=" xl:w-32 w-16 border-2 border-OrangeSecondary" />
-              <h2 className=" font-badscript xl:text-[40px] pl-2 pr-2">
-                Вкусот на твоето соседство!
-              </h2>
-              <hr className=" xl:w-32 w-16 border-2 border-OrangeSecondary" />
-            </div>
+      <section className="xl:flex xl:justify-center items-center xl:pt-40 xl:pb-40 pb-10 pt-10 relative">
+        <Image
+          src="/images/foood2.png"
+          alt="bg-image"
+          className="absolute right-0 top-1 z-0 hidden lg:block"
+          width={990}
+          height={1037}
+        />
+        <CircleSmall className="absolute right-0 top-[400px] z-0 hidden lg:block" />
+        <CircleBig className="absolute right-0 top-[650px] z-0 hidden lg:block" />
+
+        <div>
+          <div className="flex justify-center items-center">
+            <LogoBig width={105} height={112} />
+            <h1 className="xl:text-6xl text-OrangeSecondary xl:font-outline ">
+              Јади домашно
+            </h1>
           </div>
-          <div className="z-10">
-            <Image
-              src="/images/tavce gravce (1).png"
-              width={713}
-              height={675}
-              alt="Tavce Gravce"
-              className=" z-10"
-            />
-          </div>
-        </section>
-        <section className="xl:pt-20 xl:pb-20">
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center pt-5">
             <hr className=" xl:w-32 w-16 border-2 border-OrangeSecondary" />
-            <h2 className=" font-badscript xl:text-[40px] pl-4 pr-4">
-              Нашите вредности
+            <h2 className=" font-badscript xl:text-[40px] pl-2 pr-2">
+              Вкусот на твоето соседство!
             </h2>
             <hr className=" xl:w-32 w-16 border-2 border-OrangeSecondary" />
           </div>
-          <div className="flex items-center justify-around text-center pt-20">
+          <div className="pt-10 pb-10">
+            <form className="xl:flex items-center mx-auto justify-between">
+              <div className="relative xl:flex items-center  ">
+                <input
+                  type="text"
+                  placeholder="Внеси адреса"
+                  className="py-2 text-sm bg-GreyPrimary shadow-lg text-black rounded-[20px] placeholder:text-black  focus:outline-none focus:bg-white focus:text-gray-900 xl:w-80 w-full xl:h-12 placeholder:text-xs xl:placeholder:text-lg pl-14"
+                />
+                <CheckIcon className=" absolute  right-4 xl:bottom-[9px] bottom-[5px] mr-2" />
+                <LocationIcon className=" absolute left-4 xl:bottom-[9px] bottom-[5px]" />
+              </div>
+
+              <div className="pt-5 xl:pt-0 flex justify-center">
+                <button
+                  type="submit"
+                  className=" py-2 bg-OrangePrimary shadow-lg text-white rounded-[20px]  xl:w-72 w-10/12 xl:h-10 font-medium text-sm xl:block text-center cursor-pointer"
+                >
+                  Погледни резултати
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div className="z-10">
+          <Image
+            src="/images/tavce gravce (1).png"
+            width={713}
+            height={675}
+            alt="Tavce Gravce"
+            className=" z-10"
+          />
+        </div>
+      </section>
+      <section className="xl:pt-20 xl:pb-20 pb-10">
+        <div className="flex items-center justify-center">
+          <hr className=" xl:w-32 w-16 border-2 border-OrangeSecondary" />
+          <h2 className=" font-badscript xl:text-[40px] pl-4 pr-4">
+            Нашите вредности
+          </h2>
+          <hr className=" xl:w-32 w-16 border-2 border-OrangeSecondary" />
+        </div>
+        <div className=" xl:grid xl:grid-cols-3 flex-col items-center justify-around text-center pt-20">
+          <div>
+            <Image
+              src="/images/img1.png"
+              alt="Поврзување!"
+              width={278}
+              height={278}
+              className="mx-auto"
+            />
+            <h2 className=" font-badscript xl:text-[40px] text-black pb-5">
+              Поврзување!
+            </h2>
+            <p className="xl:text-xl text-black">
+              Вистински луѓе. Автентична љубов.
+            </p>
+          </div>
+          <div>
             <div>
               <Image
-                src="/images/img1.png"
+                src="/images/img2.png"
                 alt="Поврзување!"
                 width={278}
                 height={278}
                 className="mx-auto"
               />
               <h2 className=" font-badscript xl:text-[40px] text-black pb-5">
-                Поврзување!
+                Споделување на радост!
               </h2>
-              <p className="text-xl text-black">
-                Вистински луѓе. Автентична љубов.
+              <p className="xl:text-xl text-black">
+                Уживајте во заедницата преку храна.
               </p>
             </div>
+          </div>
+          <div>
             <div>
-              <div>
-                <Image
-                  src="/images/img2.png"
-                  alt="Поврзување!"
-                  width={278}
-                  height={278}
-                  className="mx-auto"
-                />
-                <h2 className=" font-badscript xl:text-[40px] text-black pb-5">
-                  Споделување на радост!
-                </h2>
-                <p className="text-xl text-black">
-                  Уживајте во заедницата преку храна.
-                </p>
-              </div>
-            </div>
-            <div>
-              <div>
-                <Image
-                  src="/images/img3.png"
-                  alt="Поврзување!"
-                  width={278}
-                  height={278}
-                  className="mx-auto"
-                />
-                <h2 className=" font-badscript xl:text-[40px] text-black pb-5">
-                  Кулинарски можности!
-                </h2>
-                <p className="text-xl text-black">
-                  Зајакнување на домашните готвачи.
-                </p>
-              </div>
+              <Image
+                priority
+                src="/images/img3.png"
+                alt="Поврзување!"
+                width={278}
+                height={278}
+                className="mx-auto"
+              />
+              <h2 className=" font-badscript xl:text-[40px] text-black pb-5">
+                Кулинарски можности!
+              </h2>
+              <p className="xl:text-xl text-black">
+                Зајакнување на домашните готвачи.
+              </p>
             </div>
           </div>
-          <div className="flex justify-center pt-10">
-            <Link
-              href="/"
-              className=" py-2 bg-OrangePrimary text-foterText rounded-[20px] xl:w-96 w-48 xl:h-10 font-medium text-sm mt-5 xl:block text-center"
-            >
-              Дознај повеќе за нас
-            </Link>
-          </div>
-        </section>
-      </body>
+        </div>
+        <div className="flex justify-center xl:pt-10">
+          <Link
+            href="/"
+            className=" py-2 bg-OrangePrimary text-foterText rounded-[20px] xl:w-96 w-48 xl:h-10 font-medium text-sm mt-5 xl:block text-center"
+          >
+            Дознај повеќе за нас
+          </Link>
+        </div>
+      </section>
     </>
   );
 }
