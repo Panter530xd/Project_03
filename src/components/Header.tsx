@@ -17,10 +17,10 @@ export default function Header() {
   const { asPath } = useRouter();
   const [navbar, setNavbar] = useState(false);
   return (
-    <nav className="bg-[#F1F1F1] shadow-xl p-3 flex xl:min-w-full min-w-max xl:items-center xl:justify-center ">
+    <nav className="bg-[#F1F1F1] shadow-xl p-3 flex xl:min-w-full min-w-fit xl:items-center xl:justify-center ">
       <Link
         href="/"
-        className="text-OrangePrimary xl:text-lg text-xs xl:ml-5 xl:mr-8"
+        className="text-OrangePrimary xl:text-lg text-xs xl:ml-5 xl:mr-8 whitespace-nowrap xl:whitespace-normal"
       >
         <Logo className="mx-auto xl:w-12 xl:h-12" width={42} height={42} />
         Јади Домашно
@@ -28,11 +28,11 @@ export default function Header() {
       <div
         className={`mt-36 md:mt-0 xl:mt-0 md:block  ${
           navbar
-            ? "md:p-0 block pb-40 md:pb-0 xl:pb-0 overflow-y-hidden"
+            ? "md:p-0 block pb-40 md:pb-0 xl:pb-0 overflow-y-hidden w-screen h-screen"
             : "hidden"
         }`}
       >
-        <ul className="h-screen md:h-auto justify-center md:flex text-center xl:items-center">
+        <ul className="h-screen md:h-auto justify-center md:flex text-center xl:items-center mr-auto ">
           <li className="mr-4 pt-3">
             <Link
               href="/"
@@ -52,10 +52,10 @@ export default function Header() {
               Како функционира
             </Link>
           </li>
-          <li className="mr-4 pt-3">
+          <li className="mr-4 pt-3 ">
             <Link
               href="/cooks"
-              className={`text-hederColor text-lg ${
+              className={`text-hederColor text-lg  ${
                 asPath === "/cooks" ? "text-active" : ""
               }`}
             >
@@ -194,7 +194,12 @@ export default function Header() {
           onClick={() => setNavbar(!navbar)}
         >
           {navbar ? (
-            <CanselIcon width={30} height={30} alt="logo" />
+            <CanselIcon
+              width={30}
+              height={30}
+              alt="logo"
+              className="absolute top-7 right-7"
+            />
           ) : (
             <HamburgerIcon
               width={30}
