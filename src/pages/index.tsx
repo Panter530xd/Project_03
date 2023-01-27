@@ -48,16 +48,16 @@ export default function Home() {
                 <input
                   type="text"
                   placeholder="Внеси адреса"
-                  className="py-2 text-sm bg-GreyPrimary shadow-lg text-black rounded-[20px] placeholder:text-black  focus:outline-none focus:bg-white focus:text-gray-900 xl:w-80 w-full xl:h-12 placeholder:text-xs xl:placeholder:text-lg pl-14"
+                  className="py-2 text-sm bg-GreyPrimary shadow-lg text-black rounded-[20px] placeholder:text-black  focus:outline-none focus:bg-white focus:text-gray-900 xl:w-80 w-full xl:h-12 h-10 placeholder:text-xs xl:placeholder:text-lg pl-14"
                 />
-                <CheckIcon className=" absolute  right-4 xl:bottom-[9px] bottom-[5px] mr-2" />
-                <LocationIcon className=" absolute left-4 xl:bottom-[9px] bottom-[5px]" />
+                <CheckIcon className=" absolute  right-4 xl:bottom-[9px] bottom-[7px] mr-2" />
+                <LocationIcon className=" absolute left-4 xl:bottom-[9px] bottom-[3px]" />
               </div>
 
               <div className="pt-5 xl:pt-0 flex justify-center">
                 <button
                   type="submit"
-                  className=" py-2 bg-OrangePrimary shadow-lg text-white rounded-[20px]  xl:w-72 w-10/12 xl:h-10 font-medium text-sm xl:block text-center cursor-pointer"
+                  className=" py-2 bg-OrangePrimary shadow-lg text-white rounded-[20px]  xl:w-72 w-40 xl:h-10 font-medium text-sm xl:block text-center cursor-pointer"
                 >
                   Погледни резултати
                 </button>
