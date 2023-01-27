@@ -32,7 +32,7 @@ export default function Header() {
             : "hidden"
         }`}
       >
-        <ul className="h-screen md:h-auto justify-center md:flex text-center xl:items-center absolute ">
+        <ul className="h-screen md:h-auto justify-center md:flex text-center xl:items-center absolute xl:static ">
           <li className="mr-4 pt-3">
             <Link
               href="/"

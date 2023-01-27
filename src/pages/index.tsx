@@ -3,6 +3,7 @@ import Image from "next/image";
 import LogoGolemo from "/public/images/Icons/logo-golemo.svg";
 import CircleSmall from "/public/images/Icons/krug-pogolem.svg";
 import CircleBig from "/public/images/Icons/krug-pomal.svg";
+import Link from "next/link";
 export default function Home() {
   return (
     <>
@@ -47,6 +48,74 @@ export default function Home() {
               alt="Tavce Gravce"
               className=" z-10"
             />
+          </div>
+        </section>
+        <section className="xl:pt-20 xl:pb-20">
+          <div className="flex items-center justify-center">
+            <hr className=" xl:w-32 w-16 border-2 border-OrangeSecondary" />
+            <h2 className=" font-badscript xl:text-[40px] pl-4 pr-4">
+              Нашите вредности
+            </h2>
+            <hr className=" xl:w-32 w-16 border-2 border-OrangeSecondary" />
+          </div>
+          <div className="flex items-center justify-around text-center pt-20">
+            <div>
+              <Image
+                src="/images/img1.png"
+                alt="Поврзување!"
+                width={278}
+                height={278}
+                className="mx-auto"
+              />
+              <h2 className=" font-badscript xl:text-[40px] text-black pb-5">
+                Поврзување!
+              </h2>
+              <p className="text-xl text-black">
+                Вистински луѓе. Автентична љубов.
+              </p>
+            </div>
+            <div>
+              <div>
+                <Image
+                  src="/images/img2.png"
+                  alt="Поврзување!"
+                  width={278}
+                  height={278}
+                  className="mx-auto"
+                />
+                <h2 className=" font-badscript xl:text-[40px] text-black pb-5">
+                  Споделување на радост!
+                </h2>
+                <p className="text-xl text-black">
+                  Уживајте во заедницата преку храна.
+                </p>
+              </div>
+            </div>
+            <div>
+              <div>
+                <Image
+                  src="/images/img3.png"
+                  alt="Поврзување!"
+                  width={278}
+                  height={278}
+                  className="mx-auto"
+                />
+                <h2 className=" font-badscript xl:text-[40px] text-black pb-5">
+                  Кулинарски можности!
+                </h2>
+                <p className="text-xl text-black">
+                  Зајакнување на домашните готвачи.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="flex justify-center pt-10">
+            <Link
+              href="/"
+              className=" py-2 bg-OrangePrimary text-foterText rounded-[20px] xl:w-96 w-48 xl:h-10 font-medium text-sm mt-5 xl:block text-center"
+            >
+              Дознај повеќе за нас
+            </Link>
           </div>
         </section>
       </body>
