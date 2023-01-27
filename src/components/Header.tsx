@@ -155,7 +155,7 @@ export default function Header() {
         <li className="xl:mr-4 mr-1">
           <Link
             href="/users"
-            className={`text-hederColor xl:text-lg text-xs ${
+            className={`text-hederColor xl:text-lg text-xs whitespace-nowrap xl:whitespace-normal ${
               asPath === "/users"
                 ? "text-active  fill-active stroke-active stroke-2"
                 : ""
