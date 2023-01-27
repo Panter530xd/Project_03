@@ -4,7 +4,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 const roboto = Roboto({
   subsets: ["cyrillic"],
-  weight: ["400", "700"],
+  weight: ["300", "400", "500", "700"],
   variable: "--font-roboto",
 });
 const badscript = Bad_Script({
