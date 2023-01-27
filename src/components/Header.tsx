@@ -17,7 +17,7 @@ export default function Header() {
   const { asPath } = useRouter();
   const [navbar, setNavbar] = useState(false);
   return (
-    <nav className="bg-[#F1F1F1] shadow-xl p-3 flex xl:min-w-full min-w-fit xl:items-center xl:justify-center ">
+    <nav className="bg-[#F1F1F1] shadow-xl p-3 flex xl:min-w-full w-full  xl:items-center xl:justify-center ">
       <Link
         href="/"
         className="text-OrangePrimary xl:text-lg text-xs xl:ml-5 xl:mr-8 whitespace-nowrap xl:whitespace-normal"
@@ -32,7 +32,7 @@ export default function Header() {
             : "hidden"
         }`}
       >
-        <ul className="h-screen md:h-auto justify-center md:flex text-center xl:items-center mr-auto ">
+        <ul className="h-screen md:h-auto justify-center md:flex text-center xl:items-center absolute ">
           <li className="mr-4 pt-3">
             <Link
               href="/"
@@ -198,7 +198,7 @@ export default function Header() {
               width={30}
               height={30}
               alt="logo"
-              className="absolute top-7 right-7"
+              // className="absolute top-7 right-7"
             />
           ) : (
             <HamburgerIcon
