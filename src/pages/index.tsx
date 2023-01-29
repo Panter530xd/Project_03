@@ -1,12 +1,13 @@
 import Head from "next/head";
 import Image from "next/image";
 import LogoBig from "/public/images/Icons/logo-golemo.svg";
-import CircleSmall from "/public/images/Icons/krug-pogolem.svg";
-import CircleBig from "/public/images/Icons/krug-pomal.svg";
+import CircleSmall from "/public/images/background-images/krug-pogolem.svg";
+import CircleBig from "/public/images/background-images/krug-pomal.svg";
 import Link from "next/link";
-import CardModal from "@/components/CardModal";
+import CardModal from "@/components/heder-components/CardModal";
 import CheckIcon from "/public/images/Icons/inputcheck.svg";
 import LocationIcon from "/public/images/Icons/inputlocation.svg";
+
 export default function Home() {
   return (
     <>
@@ -19,14 +20,23 @@ export default function Home() {
 
       <section className="xl:flex xl:justify-center items-center xl:pt-40 xl:pb-40 pb-10 pt-10 relative">
         <Image
-          src="/images/foood2.png"
+          priority
+          src="/images/background-images/foood2.png"
           alt="bg-image"
           className="absolute right-0 top-1 z-0 hidden lg:block"
-          width={990}
-          height={1037}
+          width={590}
+          height={637}
         />
-        <CircleSmall className="absolute right-0 top-[400px] z-0 hidden lg:block" />
-        <CircleBig className="absolute right-0 top-[650px] z-0 hidden lg:block" />
+        <CircleSmall
+          className="absolute right-0 top-[200px] z-0 hidden lg:block"
+          priority
+        />
+        <CircleBig
+          className="absolute right-0 top-[450px] z-0 hidden lg:block"
+          priority
+          width={90}
+          height={333}
+        />
 
         <div>
           <div className="flex justify-center items-center">
@@ -67,15 +77,23 @@ export default function Home() {
         </div>
         <div className="z-10">
           <Image
-            src="/images/tavce gravce (1).png"
+            priority
+            src="/images/images-static/tavce gravce.png"
             width={713}
             height={675}
             alt="Tavce Gravce"
             className=" z-10"
           />
         </div>
+        <Image
+          src="/images/background-images/food3.png"
+          className=" absolute top-[650px] left-0 hidden lg:block"
+          alt="Food"
+          width={390}
+          height={437}
+        />
       </section>
-      <section className="xl:pt-20 xl:pb-20 pb-10">
+      <section className="xl:pt-20 xl:pb-20 pb-10 relative">
         <div className="flex items-center justify-center">
           <hr className=" xl:w-32 w-16 border-2 border-OrangeSecondary" />
           <h2 className=" font-badscript xl:text-[40px] pl-4 pr-4">
@@ -86,7 +104,8 @@ export default function Home() {
         <div className=" xl:grid xl:grid-cols-3 flex-col items-center justify-around text-center pt-20">
           <div>
             <Image
-              src="/images/img1.png"
+              priority
+              src="/images/images-static/img1.png"
               alt="Поврзување!"
               width={278}
               height={278}
@@ -102,7 +121,8 @@ export default function Home() {
           <div>
             <div>
               <Image
-                src="/images/img2.png"
+                priority
+                src="/images/images-static/img2.png"
                 alt="Поврзување!"
                 width={278}
                 height={278}
@@ -120,7 +140,7 @@ export default function Home() {
             <div>
               <Image
                 priority
-                src="/images/img3.png"
+                src="/images/images-static/img3.png"
                 alt="Поврзување!"
                 width={278}
                 height={278}
@@ -135,10 +155,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="flex justify-center xl:pt-10">
+        <div className="flex justify-center items-center xl:pt-10">
           <Link
             href="/"
-            className=" py-2 bg-OrangePrimary text-foterText rounded-[20px] xl:w-96 w-48 xl:h-10 font-medium text-sm mt-5 xl:block text-center"
+            className=" py-2 bg-OrangePrimary text-white rounded-[20px] xl:w-96 w-48 xl:h-10 font-medium text-sm mt-5 xl:block text-center"
           >
             Дознај повеќе за нас
           </Link>

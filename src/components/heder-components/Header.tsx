@@ -12,6 +12,8 @@ import SearchIcon from "/public/images/Icons/ei_search.svg";
 import HamburgerIcon from "/public/images/Icons/bars-solid.svg";
 import CanselIcon from "/public/images/Icons/xmark-solid.svg";
 import { useState } from "react";
+import Cart from "./Cart";
+import UserCreateAccount from "./UserCreateAccount";
 
 export default function Header() {
   const { asPath } = useRouter();
@@ -152,39 +154,11 @@ export default function Header() {
       </div>
 
       <ul className="flex">
-        <li className="xl:mr-4 mr-1">
-          <Link
-            href="/users"
-            className={`text-hederColor xl:text-lg text-xs whitespace-nowrap xl:whitespace-normal ${
-              asPath === "/users"
-                ? "text-active  fill-active stroke-active stroke-2"
-                : ""
-            }`}
-          >
-            <UserIcon
-              className={`mx-auto xl:w-12 h-12 ${
-                asPath === "/users"
-                  ? " fill-active stroke-active stroke-2"
-                  : "fill-none"
-              }`}
-              width={47}
-              height={47}
-            />
-            мој профил
-          </Link>
+        <li className="xl:mr-4">
+          <UserCreateAccount />
         </li>
         <li className="xl:pt-5 pt-3 mr-2">
-          <Link href="/shopingcard">
-            <ShopingCard
-              className={`mx-auto ${
-                asPath === "/shopingcard"
-                  ? " fill-active stroke-active"
-                  : "fill-none"
-              }`}
-              width={40}
-              height={40}
-            />
-          </Link>
+          <Cart />
         </li>
       </ul>
 
@@ -194,12 +168,7 @@ export default function Header() {
           onClick={() => setNavbar(!navbar)}
         >
           {navbar ? (
-            <CanselIcon
-              width={30}
-              height={30}
-              alt="logo"
-              // className="absolute top-7 right-7"
-            />
+            <CanselIcon width={30} height={30} alt="logo" />
           ) : (
             <HamburgerIcon
               width={30}
