@@ -127,8 +127,12 @@ export default function Account({ session }: { session: Session }) {
 
       <div>
         <button
-          className="button block text-white  bg-OrangePrimary py-1 px-2"
-          onClick={() => supabase.auth.signOut()}
+          className={`button block text-white bg-OrangePrimary py-1 px-2`}
+          onClick={() =>
+            `${supabase.auth.signOut()}`
+              ? `${router.push("/")}`
+              : `${router.push("")}`
+          }
         >
           Sign Out
         </button>
