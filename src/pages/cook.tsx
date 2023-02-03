@@ -123,7 +123,7 @@ export default function Account({ session }: { session: Session }) {
           onClick={() => updateProfile({ username, website, avatar_url })}
           disabled={loading}
         >
-          {loading ? "Loading ..." : "Update"}
+          {loading ? "Loading ..." : "Промени"}
         </button>
       </div>
 
@@ -136,7 +136,7 @@ export default function Account({ session }: { session: Session }) {
               : `${router.push("")}`
           }
         >
-          Sign Out
+          Одјави се
         </button>
       </div>
     </div>
