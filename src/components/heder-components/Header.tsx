@@ -5,8 +5,6 @@ import SecondIcon from "/public/images/Icons/mdi_cook.svg";
 import OfferIcon from "/public/images/Icons/Group 13930.svg";
 import MenuIcon from "/public/images/Icons/fluent-emoji-high-contrast_fork-and-knife-with-plate.svg";
 import ForumIcon from "/public/images/Icons/Vector.svg";
-import UserIcon from "/public/images/Icons/mdi_user-alert-outline.svg";
-import ShopingCard from "/public/images/Icons/shopping-bag-svgrepo-com.svg";
 import Logo from "/public/images/Icons/logo-jadi-domasno 1.svg";
 import SearchIcon from "/public/images/Icons/ei_search.svg";
 import HamburgerIcon from "/public/images/Icons/bars-solid.svg";
