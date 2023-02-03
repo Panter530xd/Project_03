@@ -3,13 +3,15 @@ import {
   useSupabaseClient,
   Session,
 } from "@supabase/auth-helpers-react";
-import { Router } from "next/router";
+
+import { createBrowserSupabaseClient } from "@supabase/auth-helpers-nextjs";
 import { useEffect, useState } from "react";
-import { Database } from "../database.types";
+import { Database } from "@/database/types";
 import { useRouter } from "next/router";
 type Profiles = Database["public"]["Tables"]["profiles"]["Row"];
 
 export default function Account({ session }: { session: Session }) {
+  const supabaseClient = createBrowserSupabaseClient<Database>();
   const router = useRouter();
   const supabase = useSupabaseClient<Database>();
   const user = useUser();
