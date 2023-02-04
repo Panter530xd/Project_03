@@ -57,7 +57,7 @@ export default function UserCreateAccount() {
   return (
     <>
       <button
-        className={`text-hederColor xl:text-lg text-xs pt-3 ${
+        className={`text-hederColor xl:text-lg text-xs pt-3 whitespace-nowrap xl:whitespace-normal ${
           isOpen
             ? "text-active fill-active stroke-active stroke-2"
             : "stroke-black fill-black"
