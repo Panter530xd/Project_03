@@ -42,6 +42,7 @@ export default function UserCreateAccount() {
       email: data.email,
       password: data.password,
     });
+
     if (error) {
       alert("There is an error!");
     }
@@ -78,11 +79,13 @@ export default function UserCreateAccount() {
             className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
             onSubmit={handleSubmit(onSubmit)}
           >
-            <div className="grid grid-cols-2 gap-1 border-b-2 border-OrangePrimary">
-              <h3 className=" text-OrangePrimary text-2xl">Најависе</h3>
+            <div className="flex border-b-2 border-OrangePrimary">
+              <h3 className=" text-OrangePrimary xl:text-2xl mr-5">
+                Најави се
+              </h3>
               <Link
                 href="/signup"
-                className="text-2xl text-black hover:text-OrangePrimary"
+                className="xl:text-2xl text-black hover:text-OrangePrimary"
               >
                 Регистрирај се
               </Link>
@@ -120,3 +123,40 @@ export default function UserCreateAccount() {
     </>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const supabase = createServerSupabaseClient(ctx);
+
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+
+  if (session) {
+    const { data } = await supabase
+      .from("profiles")
+      .select("*")
+      .eq("id", session.user.id);
+
+    if (data) {
+      if (data[0].user_tipe === "cook") {
+        return {
+          redirect: {
+            destination: "/cook",
+            permanent: false,
+          },
+        };
+      } else {
+        return {
+          redirect: {
+            destination: "/gurman",
+            permanent: false,
+          },
+        };
+      }
+    }
+  }
+
+  return {
+    props: {},
+  };
+};

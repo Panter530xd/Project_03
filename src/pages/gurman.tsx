@@ -12,7 +12,7 @@ import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
 import Avatar from "@/components/heder-components/Avatar";
 type Profiles = Database["public"]["Tables"]["profiles"]["Row"];
 
-export default function Cook({
+export default function Gurman({
   session,
   data,
 }: {

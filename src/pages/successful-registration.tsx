@@ -20,9 +20,12 @@ const SuccessfullReg: NextPage = () => {
         >
           кон почетна
         </Link>
-        <button className="py-2 bg-OrangePrimary shadow-lg text-white rounded-[20px]  xl:w-72 w-40 xl:h-10 font-medium text-sm xl:block text-center cursor-pointer">
+        <Link
+          href="/signup"
+          className="py-2 bg-OrangePrimary shadow-lg text-white rounded-[20px]  xl:w-72 w-40 xl:h-10 font-medium text-sm xl:block text-center cursor-pointer"
+        >
           кон мојот профил
-        </button>
+        </Link>
       </div>
     </div>
   );

@@ -93,9 +93,16 @@ const User = () => {
           user_age: data.user_age,
           user_tipe: data.user_tipe,
           avatar_url: data.avatar_url,
-          user_cusine: [...checkedList],
+          user_cusine: [
+            ...checkedList
+              .filter((cusin) => {
+                return cusin.checked;
+              })
+              .map((cusin) => {
+                return cusin.name;
+              }),
+          ],
         },
-        emailRedirectTo: "http://localhost:3000/user",
       },
     });
     if (error) {
@@ -108,7 +115,7 @@ const User = () => {
       );
       e?.target.reset();
       alert(`Успешно се регистриравте`);
-      router.push("/successful registration");
+      router.push("/successful-registration");
     }
   };
 
@@ -311,7 +318,10 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   }
 
   return {
-    props: {},
+    props: {
+      // initialSession: session,
+      // user: session!.user,
+    },
   };
 };
 
