@@ -8,13 +8,13 @@ import Link from "next/link";
 import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
 import { GetServerSideProps } from "next";
 import { Profiles } from "@/types/profiles";
-import HetIcon from "/public/images/icons/hat.svg";
+import HetIcon from "/public/images/icons/hats.svg";
 import HeartIcon from "/public/images/icons/heard.svg";
 import TeaIcon from "/public/images/icons/tea.svg";
-import CarbonUserIcon from "/public/images/icons/carbon_user-favorite-alt (1).svg";
-import IconTwo from "/public/images/icons/image 41.svg";
-import IconTree from "/public/images/icons/image 42.svg";
-import IconFour from "/public/images/icons/image 43.svg";
+import CarbonUserIcon from "/public/images/icons/carbon.svg";
+import IconTwo from "/public/images/icons/image41.svg";
+import IconTree from "/public/images/icons/image42.svg";
+import IconFour from "/public/images/icons/image43.svg";
 import CardCooks from "@/components/card-profiles/CardCooks";
 import SearchAddress from "@/components/search-address/SearchAddress";
 interface Props {
