@@ -77,10 +77,14 @@ const searchAddress: NextPage<Props> = ({ profilesAllData }) => {
             onBlur={onBlur}
             onFocus={onFocus}
           />
-          <CheckIcon className=" absolute  right-4 xl:bottom-[9px] bottom-[7px] mr-2" />
+          <CheckIcon
+            width={24}
+            height={24}
+            className=" absolute  right-4 xl:bottom-[9px] bottom-[7px] mr-2"
+          />
           <LocationIcon
-            width={13}
-            height={14}
+            width={24}
+            height={30}
             className=" absolute left-4 xl:bottom-[9px] bottom-[3px]"
           />
           {showSuggestions && focused && (
