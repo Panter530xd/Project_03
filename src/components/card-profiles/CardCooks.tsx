@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import { NextPage } from "next";
 import { Profiles } from "@/types/profiles";
-import StarOutline from "/public/images/icons/starborder.svg";
-import StarIconFull from "/public/images/icons/fullstar.svg";
+import StarOutline from "../../../public/images/Icons/starborder.svg";
+import StarIconFull from "../../../public/images/Icons/fullstar.svg";
 import { Key } from "react";
-import LocationAddress from "/public/images/icons/location.svg";
+import LocationAddress from "../../../public/images/Icons/location.svg";
 import Link from "next/link";
 
 interface Props {

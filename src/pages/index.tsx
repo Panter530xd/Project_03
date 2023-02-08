@@ -1,20 +1,19 @@
-/* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
 import Image from "next/image";
-import LogoBig from "/public/images/Icons/logo-golemo.svg";
-import CircleSmall from "/public/images/background-images/krug-pogolem.svg";
-import CircleBig from "/public/images/background-images/krug-pomal.svg";
+import LogoBig from "../../public/images/Icons//logo-golemo.svg";
+import CircleSmall from "../../public/images/background-images/krug-pogolem.svg";
+import CircleBig from "../../public/images/background-images/krug-pomal.svg";
 import Link from "next/link";
 import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
 import { GetServerSideProps } from "next";
 import { Profiles } from "@/types/profiles";
-import HetIcon from "/public/images/icons/hats.svg";
-import HeartIcon from "/public/images/icons/heard.svg";
-import TeaIcon from "/public/images/icons/tea.svg";
-import CarbonUserIcon from "/public/images/icons/carbon.svg";
-import IconTwo from "/public/images/icons/image41.svg";
-import IconTree from "/public/images/icons/image42.svg";
-import IconFour from "/public/images/icons/image43.svg";
+import HetIcon from "../../public/images/Icons/hats.svg";
+import HeartIcon from "../../public/images/Icons/heard.svg";
+import TeaIcon from "../../public/images/Icons/tea.svg";
+import CarbonUserIcon from "../../public/images/Icons/carbon.svg";
+import IconTwo from "../../public/images/Icons/image41.svg";
+import IconTree from "../../public/images/Icons/image42.svg";
+import IconFour from "../../public/images/Icons/image43.svg";
 import CardCooks from "@/components/card-profiles/CardCooks";
 import SearchAddress from "@/components/search-address/SearchAddress";
 interface Props {

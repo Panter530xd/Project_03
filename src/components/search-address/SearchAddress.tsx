@@ -3,8 +3,8 @@ import { NextPage } from "next";
 import { useEffect, useState } from "react";
 import { Profiles } from "@/types/profiles";
 import { useRouter } from "next/router";
-import CheckIcon from "/public/images/Icons/inputcheck.svg";
-import LocationIcon from "/public/images/Icons/inputlocation.svg";
+import CheckIcon from "../../../public/images/Icons/inputcheck.svg";
+import LocationIcon from "../../../public/images/Icons/inputlocation.svg";
 interface Props {
   profilesAllData: Profiles[];
 }
