@@ -1,9 +1,10 @@
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, NextPage } from "next";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 enum GenderEnum {
   cook = "cook",
@@ -46,7 +47,7 @@ const cusines: CusinesTypes[] = [
   { id: 14, name: "Вегетаријанска кујна" },
 ];
 
-const User = () => {
+const User: NextPage = () => {
   const router = useRouter();
   const [checkedList, setCheckedList] = useState<CusinesTypes[]>(
     uncheckAll(cusines)
@@ -275,6 +276,18 @@ const User = () => {
             ))}
           </div>
         </div>
+        <div className="text-center py-8 ">
+          <h3 className="xl:text-2xl">
+            Добредојде во нашата кулинарска заедница!
+          </h3>
+          <Image
+            src="/images/images-static/cookkkk 2.png"
+            alt="cook img"
+            width={439}
+            height={264}
+            className="mx-auto pt-6"
+          />
+        </div>
         <div className="pt-3">
           <button className=" py-2 px-4 rounded w-full bg-OrangePrimary text-white">
             Заврши регитрација
@@ -318,10 +331,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   }
 
   return {
-    props: {
-      // initialSession: session,
-      // user: session!.user,
-    },
+    props: {},
   };
 };
 

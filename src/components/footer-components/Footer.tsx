@@ -8,7 +8,7 @@ import Youtube from "/public/images/footer-icons/youtube.svg";
 import LogoFooter from "/public/images/footer-icons/logo-footer.svg";
 export default function Footer() {
   return (
-    <footer className=" bg-FooterMainColor xl:flex xl:items-center xl:justify-between xl:pt-20 xl:pb-20 pb-10 pt-10">
+    <footer className=" bg-FooterMainColor xl:flex xl:items-center xl:justify-between xl:pt-20 xl:pb-20 pb-10 pt-10 z-50">
       <div className="w-11/12 xl:flex xl:justify-between mx-auto grid grid-cols-1 gap-5">
         <div>
           <Link href="/">

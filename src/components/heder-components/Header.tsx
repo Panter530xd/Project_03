@@ -35,14 +35,14 @@ export default function Header() {
         <ul className="h-screen md:h-auto justify-center md:flex text-center xl:items-center absolute xl:static ">
           <li className="mr-4 pt-3">
             <Link
-              href="/"
+              href="/kako-funkcionira"
               className={`text-hederColor text-lg ${
-                asPath === "/" ? "text-active" : ""
+                asPath === "/kako-funkcionira" ? "text-active" : ""
               }`}
             >
               <FirstIcon
                 className={`mx-auto ${
-                  asPath === "/"
+                  asPath === "/kako-funkcionira"
                     ? "text-active fill-active stroke-active stroke-2"
                     : "fill-none"
                 }`}

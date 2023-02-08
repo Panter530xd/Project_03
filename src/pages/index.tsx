@@ -1,14 +1,31 @@
+/* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
 import Image from "next/image";
 import LogoBig from "/public/images/Icons/logo-golemo.svg";
 import CircleSmall from "/public/images/background-images/krug-pogolem.svg";
 import CircleBig from "/public/images/background-images/krug-pomal.svg";
 import Link from "next/link";
-import CardModal from "@/components/heder-components/CardModal";
-import CheckIcon from "/public/images/Icons/inputcheck.svg";
-import LocationIcon from "/public/images/Icons/inputlocation.svg";
+import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
+import { GetServerSideProps } from "next";
+import { Profiles } from "@/types/profiles";
+import HetIcon from "/public/images/icons/hat.svg";
+import HeartIcon from "/public/images/icons/heard.svg";
+import TeaIcon from "/public/images/icons/tea.svg";
+import CarbonUserIcon from "/public/images/icons/carbon_user-favorite-alt (1).svg";
+import IconTwo from "/public/images/icons/image 41.svg";
+import IconTree from "/public/images/icons/image 42.svg";
+import IconFour from "/public/images/icons/image 43.svg";
+import CardCooks from "@/components/card-profiles/CardCooks";
+import SearchAddress from "@/components/search-address/SearchAddress";
+interface Props {
+  userProfiles: Profiles[];
+  profilesAllData: Profiles[];
+}
 
-export default function Home() {
+export default function Home({
+  userProfiles,
+  profilesAllData,
+}: Props): JSX.Element {
   return (
     <>
       <Head>
@@ -52,28 +69,7 @@ export default function Home() {
             </h2>
             <hr className=" xl:w-32 w-16 border-2 border-OrangeSecondary" />
           </div>
-          <div className="pt-10 pb-10">
-            <form className="xl:flex items-center mx-auto justify-between">
-              <div className="relative xl:flex items-center  ">
-                <input
-                  type="text"
-                  placeholder="Внеси адреса"
-                  className="py-2 text-sm bg-GreyPrimary shadow-lg text-black rounded-[20px] placeholder:text-black  focus:outline-none focus:bg-white focus:text-gray-900 xl:w-80 w-full xl:h-12 h-10 placeholder:text-xs xl:placeholder:text-lg pl-14"
-                />
-                <CheckIcon className=" absolute  right-4 xl:bottom-[9px] bottom-[7px] mr-2" />
-                <LocationIcon className=" absolute left-4 xl:bottom-[9px] bottom-[3px]" />
-              </div>
-
-              <div className="pt-5 xl:pt-0 flex justify-center">
-                <button
-                  type="submit"
-                  className=" py-2 bg-OrangePrimary shadow-lg text-white rounded-[20px]  xl:w-72 w-40 xl:h-10 font-medium text-sm xl:block text-center cursor-pointer"
-                >
-                  Погледни резултати
-                </button>
-              </div>
-            </form>
-          </div>
+          <SearchAddress profilesAllData={profilesAllData} />
         </div>
         <div className="z-10">
           <Image
@@ -155,15 +151,339 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="flex justify-center items-center xl:pt-10">
+        <div className="flex justify-center xl:pt-20 pt-7 ">
           <Link
             href="/"
-            className=" py-2 bg-OrangePrimary text-white rounded-[20px] xl:w-96 w-48 xl:h-10 font-medium text-sm mt-5 xl:block text-center"
+            className=" xl:py-3 xl:px-2 py-2 bg-OrangePrimary text-white rounded-[20px] xl:w-72 w-48  font-medium text-sm xl:block text-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
           >
             Дознај повеќе за нас
           </Link>
         </div>
       </section>
+      <div className="flex items-center justify-center xl:py-10 relative">
+        <hr className=" xl:w-32 w-16 border-2 border-OrangeSecondary" />
+        <h2 className=" font-badscript xl:text-[40px] pl-4 pr-4">
+          Запознајте ги нашите готвачи
+        </h2>
+        <hr className=" xl:w-32 w-16 border-2 border-OrangeSecondary" />
+        <Image
+          src="/images/background-images/domates2.svg"
+          alt={"domates"}
+          className=" absolute left-0 bottom-3 hidden lg:block"
+          width={246}
+          height={194}
+        />
+        <Image
+          src="/images/background-images/piper2.svg"
+          alt={"domates"}
+          className=" absolute right-0 bottom-3 hidden lg:block"
+          width={232}
+          height={194}
+        />
+      </div>
+      <div className="flex flex-wrap w-11/12 mx-auto">
+        {userProfiles?.map((profile) => {
+          return <CardCooks profile={profile} key={profile.id} />;
+        })}
+      </div>
+      <div className="flex justify-center xl:py-20 py-7 relative">
+        <Image
+          src="/images/background-images/golema-levo.png"
+          alt={"domates"}
+          className=" absolute left-0  hidden lg:block"
+          width={246}
+          height={194}
+        />
+        <Image
+          src="/images/background-images/golema-desno.png"
+          alt={"domates"}
+          className=" absolute right-0  hidden lg:block"
+          width={246}
+          height={194}
+        />
+        <Link
+          href="/"
+          className=" xl:py-3 xl:px-2 py-2 border-OrangeSecondary text-white rounded-[20px] xl:w-81 w-48  font-medium text-sm xl:block text-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
+        >
+          Кон готвачи
+        </Link>
+      </div>
+      <div className="text-center border-t-4 border-OrangeSecondary w-11/12 mx-auto border-b-4 xl:py-20">
+        <div className="grid grid-cols-3 xl:gap-40 xl:content-center  gap-3 py-10  items-end">
+          <div>
+            <HeartIcon className="mx-auto" />
+            <h3 className="  text-OrangePrimary xl:text-5xl font-bold py-3">
+              10 900+
+            </h3>
+            <h3 className="font-badscript xl:text-2xl text-sm">
+              задоволни клиенти
+            </h3>
+          </div>
+          <div>
+            <TeaIcon className="mx-auto" />
+            <h3 className="  text-OrangePrimary xl:text-5xl font-bold py-3">
+              13 765+
+            </h3>
+            <h3 className="font-badscript xl:text-2xl text-sm">
+              подготвени јадења
+            </h3>
+          </div>
+          <div>
+            <HetIcon className="mx-auto" />
+            <h3 className="  text-OrangePrimary xl:text-5xl font-bold py-3">
+              864+
+            </h3>
+            <h3 className="font-badscript xl:text-2xl text-sm">
+              среќни готвачи
+            </h3>
+          </div>
+        </div>
+      </div>
+      <div className="grid xl:grid-cols-3 xl:gap-10 xl:content-center gap-10 xl:py-40 py-20 items-end w-11/12 mx-auto">
+        <div className="shadow-2xl rounded p-4 ">
+          <Image
+            src="/images/images-static/gurman1.png"
+            alt={"gurman"}
+            width={262}
+            height={262}
+            className="mx-auto"
+          />
+          <div className="flex flex-col justify-center items-center">
+            <h3 className="py-4 xl:text-lg">
+              ,,Највкусната домашна храна што сум ја пробала! Едвај чекам да
+              пробам уште многу вкусни јадења.’’
+            </h3>
+            <h3 className="py-4 xl:text-2xl">Мила Крстева, 32 години</h3>
+          </div>
+        </div>
+        <div className="shadow-2xl rounded p-4 ">
+          <Image
+            src="/images/images-static/gurman2.png"
+            alt={"gurman"}
+            width={262}
+            height={262}
+            className="mx-auto"
+          />
+          <div className="flex flex-col justify-center items-center">
+            <h3 className="py-4 xl:text-lg">
+              ,,Јади домашно е најдобро нешто од мојот студенски живот во
+              Скопје.Браво Јади домашно!!!’’
+            </h3>
+            <h3 className="py-4 xl:text-2xl">Лара Миланова, 22 години</h3>
+          </div>
+        </div>
+        <div className="shadow-2xl rounded p-4">
+          <Image
+            src="/images/images-static/gurman3.png"
+            alt={"gurman"}
+            width={262}
+            height={262}
+            className="mx-auto"
+          />
+          <div className="flex flex-col justify-center items-center">
+            <h3 className="py-4 xl:text-lg">
+              ,Ни еден ресторан не може да го замени вкусот на домашно тавче
+              гравче. Браво Јади домашно!!! ’’
+            </h3>
+            <h3 className="py-4 xl:text-2xl">Миле Венковски, 40 години</h3>
+          </div>
+        </div>
+      </div>
+      <div className="flex items-center justify-center">
+        <div className="w-11/12 flex items-center justify-center">
+          <hr className=" xl:w-[601px] w-20 border-2 border-OrangeSecondary" />
+          <Image
+            src="/images/images-static/домат1.png"
+            alt={"gurman"}
+            width={100}
+            height={100}
+            className="mx-auto"
+          />
+          <hr className=" xl:w-[601px] w-20 border-2 border-OrangeSecondary" />
+        </div>
+      </div>
+      <div className="text-center mx-auto xl:py-28 py-10 relative">
+        <h2 className=" xl:text-5xl font-normal">
+          Стани дел од семејството
+          <span className=" pl-5 xl:text-5xl font-normal  text-OrangePrimary">
+            Јади Домашно
+          </span>
+        </h2>
+        <Image
+          src="/images/images-static/domates4.png"
+          alt={"domates"}
+          className=" absolute left-0 top-3  hidden lg:block"
+          width={246}
+          height={193}
+        />
+        <Image
+          src="/images/images-static/desno-piperka.png"
+          alt={"domates"}
+          className=" absolute right-0 top-3  hidden lg:block"
+          width={246}
+          height={194}
+        />
+      </div>
+      <div className="grid grid-cols-2 xl:gap-40 gap-20 text-center xl:py-10 w-11/12 mx-auto">
+        <div className="border-b-4 border-OrangeSecondary">
+          <Image
+            src="/images/images-static/hrana-levo.png"
+            alt={"gurman"}
+            width={191}
+            height={177}
+            className="mx-auto"
+          />
+          <h3 className="xl:text-2xl py-10">Сакам да нарачувам храна</h3>
+        </div>
+        <div className="border-b-4 border-OrangeSecondary">
+          <Image
+            src="/images/images-static/gotvac-desno.png"
+            alt={"gurman"}
+            width={191}
+            height={177}
+            className="mx-auto"
+          />
+          <h3 className="xl:text-2xl py-10">Сакам да станам готвач</h3>
+        </div>
+      </div>
+      <div className="relative">
+        <div className=" w-11/12 grid xl:grid-cols-2 xl:gap-40 gap:10 mx-auto xl:pb-40 pt-10 pb-10">
+          <div className="mx-auto xl:pb-0 pb-10">
+            <div className="flex items-center justify-between py-4">
+              <CarbonUserIcon width={50} height={50} />
+              <h4 className="pl-5">
+                Регистрирај се на платформата како клиент!
+              </h4>
+            </div>
+            <div className="flex items-center justify-center py-4">
+              <IconTwo width={60} height={60} />
+              <h4 className="pl-5">
+                Регистрирај се на платформата како клиент!
+              </h4>
+            </div>
+            <div className="flex items-center justify-center py-4 ">
+              <IconTree width={60} height={60} />
+              <h4 className="pl-5">
+                Регистрирај се на платформата како клиент!
+              </h4>
+            </div>
+            <div className="flex items-center justify-center py-4">
+              <IconFour width={60} height={60} />
+              <h4 className="pl-5">
+                Регистрирај се на платформата како клиент!
+              </h4>
+            </div>
+            <div className="flex justify-center">
+              <Link
+                href="/signup"
+                className="text-white  bg-OrangePrimary rounded-[20px] px-4 py-2"
+              >
+                Стани клиент
+              </Link>
+            </div>
+          </div>
+          <div className="mx-auto">
+            <div className="flex items-center justify-center py-4">
+              <CarbonUserIcon width={50} height={50} />
+              <h4 className="pl-5">
+                Регистрирај се на платформата како клиент!
+              </h4>
+            </div>
+            <div className="flex items-center justify-center py-4">
+              <IconTwo width={60} height={60} />
+              <h4 className="pl-5">
+                Регистрирај се на платформата како клиент!
+              </h4>
+            </div>
+            <div className="flex items-center justify-center py-4">
+              <IconTree width={60} height={60} />
+              <h4 className="pl-5">
+                Регистрирај се на платформата како клиент!
+              </h4>
+            </div>
+            <div className="flex items-center justify-center py-4">
+              <IconFour width={60} height={60} />
+              <h4 className="pl-5">
+                Регистрирај се на платформата како клиент!
+              </h4>
+            </div>
+            <div className="flex justify-center">
+              <Link
+                href="/signup"
+                className="text-white  bg-OrangePrimary rounded-[20px] px-4 py-2"
+              >
+                Стани готвач
+              </Link>
+            </div>
+          </div>
+          <Image
+            src="/images/background-images/footer-levo.png"
+            alt={"domates"}
+            className=" absolute left-0 top-[270px] hidden lg:block -z-10"
+            width={246}
+            height={193}
+          />
+          <Image
+            src="/images/background-images/footer-desno.png"
+            alt={"domates"}
+            className=" absolute right-0 top-[200px] hidden lg:block -z-10"
+            width={246}
+            height={194}
+          />
+        </div>
+      </div>
     </>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const supabase = createServerSupabaseClient(ctx);
+  const { data: profilesAllData } = await supabase.from("profiles").select("*");
+  const { data: profilesData } = await supabase
+    .from("profiles")
+    .select("*")
+    .limit(3);
+  const profilesId = profilesData?.map((profile) => profile.id);
+
+  const { data: recipesData } = await supabase
+    .from("recipes")
+    .select("*")
+    .in("profiles_id", [...(profilesId as string[])]);
+
+  const accumulatedRatingsPerProfile: any = {};
+
+  const numberOfRecipes: any = {};
+
+  recipesData?.forEach((recipe) => {
+    if (accumulatedRatingsPerProfile[recipe.profiles_id]) {
+      accumulatedRatingsPerProfile[recipe.profiles_id] = Math.floor(
+        (recipe.raiting + accumulatedRatingsPerProfile[recipe.profiles_id]) /
+          numberOfRecipes[recipe.profiles_id] +
+          1
+      );
+      numberOfRecipes[recipe.profiles_id] =
+        numberOfRecipes[recipe.profiles_id] + 1;
+    } else {
+      accumulatedRatingsPerProfile[recipe.profiles_id] = recipe.raiting;
+      numberOfRecipes[recipe.profiles_id] = 1;
+    }
+  });
+
+  const userProfiles = profilesData?.map((profile) => {
+    return {
+      ...profile,
+      averageRating: accumulatedRatingsPerProfile[profile.id],
+    };
+  });
+
+  console.log(userProfiles);
+
+  return {
+    props: {
+      profilesData,
+      recipesData,
+      userProfiles,
+      profilesAllData,
+    },
+  };
+};

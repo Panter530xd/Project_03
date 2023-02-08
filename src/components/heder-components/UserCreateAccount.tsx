@@ -112,7 +112,7 @@ export default function UserCreateAccount() {
               />
             </div>
             <button className="py-2 px-4 rounded w-full bg-OrangePrimary text-white">
-              најависе
+              најави се
             </button>
           </form>
           <ModalFooter>
