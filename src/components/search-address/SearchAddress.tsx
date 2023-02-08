@@ -78,7 +78,11 @@ const searchAddress: NextPage<Props> = ({ profilesAllData }) => {
             onFocus={onFocus}
           />
           <CheckIcon className=" absolute  right-4 xl:bottom-[9px] bottom-[7px] mr-2" />
-          <LocationIcon className=" absolute left-4 xl:bottom-[9px] bottom-[3px]" />
+          <LocationIcon
+            width={13}
+            height={14}
+            className=" absolute left-4 xl:bottom-[9px] bottom-[3px]"
+          />
           {showSuggestions && focused && (
             <ul className="bg-white absolute w-64 z-50 overflow-auto shadow-lg">
               {suggestions.map((suggestion) => (

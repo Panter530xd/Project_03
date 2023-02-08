@@ -211,7 +211,7 @@ export default function Home({
       <div className="text-center border-t-4 border-OrangeSecondary w-11/12 mx-auto border-b-4 xl:py-20">
         <div className="grid grid-cols-3 xl:gap-40 xl:content-center  gap-3 py-10  items-end">
           <div>
-            <HeartIcon className="mx-auto" />
+            <HeartIcon width={66} height={54} className="mx-auto" />
             <h3 className="  text-OrangePrimary xl:text-5xl font-bold py-3">
               10 900+
             </h3>
@@ -220,7 +220,7 @@ export default function Home({
             </h3>
           </div>
           <div>
-            <TeaIcon className="mx-auto" />
+            <TeaIcon width={79} height={64} className="mx-auto" />
             <h3 className="  text-OrangePrimary xl:text-5xl font-bold py-3">
               13 765+
             </h3>
@@ -229,7 +229,7 @@ export default function Home({
             </h3>
           </div>
           <div>
-            <HetIcon className="mx-auto" />
+            <HetIcon width={75} height={60} className="mx-auto" />
             <h3 className="  text-OrangePrimary xl:text-5xl font-bold py-3">
               864+
             </h3>

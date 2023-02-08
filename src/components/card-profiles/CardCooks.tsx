@@ -30,9 +30,9 @@ const CardCooks: NextPage<Props> = ({ profile }) => {
           <div className="flex">
             {[...Array(5)].map((_, index) =>
               index < profile.averageRating ? (
-                <StarIconFull key={index}></StarIconFull>
+                <StarIconFull key={index} width={22} height={23} />
               ) : (
-                <StarOutline key={index}></StarOutline>
+                <StarOutline key={index} width={22} height={23} />
               )
             )}
           </div>
