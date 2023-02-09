@@ -7,3 +7,38 @@
     -webkit-text-stroke: 2px black;
   }
 }
+
+button.splide__arrow.splide__arrow--next {
+  background: none !important;
+}
+
+button.splide__arrow.splide__arrow--prev {
+  background: none !important;
+  margin-right: 50px !important;
+}
+
+.splide__arrow svg {
+  fill: orangered !important;
+  height: 3em !important;
+  width: 3em !important;
+}
+
+ul.splide__pagination.splide__pagination--ltr {
+  display: none !important;
+}
+
+.splide__arrow--next {
+  right: -3em !important;
+}
+
+.splide__arrow--prev {
+  left: -3em !important;
+}
+@media only screen and (max-width: 600px) {
+  .splide__arrow--next {
+    right: -1.5em !important;
+  }
+  .splide__arrow--prev {
+    left: -1.5em !important;
+  }
+}
