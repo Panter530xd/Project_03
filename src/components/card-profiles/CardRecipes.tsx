@@ -15,7 +15,7 @@ interface Props {
 const CardCooks = ({ recipesData }: Props) => {
   return (
     <div className="w-full md:w-1/3 p-4 flex flex-col transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
-      <div className="flex-1 rounded-t-3xl rounded-b-none overflow-hidden shadow-lg relative -z-10">
+      <div className="flex-1 rounded-t-3xl rounded-b-none overflow-hidden shadow-lg relative -z-10 ">
         <img
           src={recipesData.img}
           alt={recipesData.title}
@@ -31,7 +31,7 @@ const CardCooks = ({ recipesData }: Props) => {
         <div className="pr-3 xl:pl-0 grid grid-cols-3 justify-between items-center">
           <div>
             <img
-              className="w-20 h-20 rounded-full "
+              className="w-20 h-20 rounded-full"
               src={recipesData.profiles.avatar_url}
               alt="avatar"
             />
@@ -54,7 +54,9 @@ const CardCooks = ({ recipesData }: Props) => {
             <div className="flex justify-between -ml-7">
               <div className="flex justify-between items-center ">
                 <LocationAddress className="mr-3" />
-                <h3>{recipesData.recipe_address}</h3>
+                <h4 className=" text-sm text-black">
+                  {recipesData.recipe_address}
+                </h4>
               </div>
             </div>
           </div>
@@ -64,9 +66,9 @@ const CardCooks = ({ recipesData }: Props) => {
                 {recipesData.price}ден
               </h4>
             </div>
-            <div className="flex justify-center  pr-8 xl:pt-0 pt-3 relative">
+            <div className="flex justify-center pr-8 xl:pt-0 pt-3 relative">
               <Link href="/gotvaci">
-                <button className="  bg-OrangeSecondary text-left items-start flex text-white rounded-[20px] xl:px-[30px] px-[27px] py-[5px] text-sm whitespace-nowrap">
+                <button className="  bg-OrangeSecondary  text-white rounded-[20px] xl:px-[30px] px-[27px] py-[5px] text-sm whitespace-nowrap">
                   Во кошничка
                 </button>
               </Link>

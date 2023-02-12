@@ -4,12 +4,25 @@ import { Profiles, Recipes } from "@/types/profiles";
 import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
 import { GetServerSideProps, NextPage } from "next";
 import Slider from "../components/slider/Slider";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import SearchAddressMenu from "@/components/search-address/SearchAddresMenu";
 import Available from "@/components/available/Available";
 import FilterPrice from "@/components/filter-price/FilterPrice";
 import Alergens from "@/components/alergeni/Alergens";
 import StarRaitingFilter from "@/components/star-raiting/StarRaitingFilter";
+import DiliveryFilter from "@/components/dilivery/DiliveryFilter";
+import ResetButton from "@/components/reset-button/ResetButton";
+import FilterSolidIcon from "../../public/images/Icons/filter-solid.svg";
+import {
+  Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  useDisclosure,
+} from "@chakra-ui/react";
 
 interface Props {
   recipesData: Recipes[];
@@ -22,6 +35,17 @@ const MenuPage: NextPage<Props> = ({
   message,
   profilesAllData,
 }) => {
+  const [showingRecipes, setShowingRecipes] = useState(12);
+  const [showMoreButton, setShowMoreButton] = useState(true);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const handleShowMore = () => {
+    setShowingRecipes(showingRecipes + 3);
+    if (showingRecipes + 3 >= recipesData.length) {
+      setShowMoreButton(false);
+    }
+  };
+
   const resultsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -41,9 +65,23 @@ const MenuPage: NextPage<Props> = ({
       <SliderFood />
       <section
         ref={resultsRef}
-        className="flex justify-center xl:w-11/12 mx-auto"
+        className="xl:flex justify-center xl:w-11/12 mx-auto"
       >
-        <div className="shadow-lg bg-[#FFF2E2] grow rounded-t-2xl mt-4 md:block hidden">
+        <div className="lg:hidden relative py-4">
+          <button
+            onClick={onOpen}
+            className="text-white text-center  bg-OrangeSecondary rounded-[20px] px-8 py-2 ml-5 "
+          >
+            Покажи Филтри
+          </button>
+          <FilterSolidIcon
+            width={20}
+            height={20}
+            className=" fill-white absolute top-[27px] left-7"
+          />
+        </div>
+
+        <div className="shadow-lg bg-[#FFF2E2] grow rounded-t-2xl mt-4 md:block hidden h-3/6">
           <div>
             <SearchAddressMenu profilesAllData={profilesAllData} />
           </div>
@@ -59,13 +97,69 @@ const MenuPage: NextPage<Props> = ({
           <div>
             <StarRaitingFilter />
           </div>
+          <div>
+            <DiliveryFilter />
+          </div>
+          <div className="flex justify-center pb-5">
+            <ResetButton />
+          </div>
         </div>
-        <div className="flex flex-wrap xl:w-10/12 w-12/12 xl:mx-auto xl:ml-5">
-          {recipesData?.map((recipe: Recipes) => {
+        <div className="lg:hidden">
+          <Modal isOpen={isOpen} onClose={onClose}>
+            <ModalOverlay />
+            <ModalContent>
+              <ModalHeader>Филтрирај</ModalHeader>
+              <ModalBody>
+                <div className="shadow-lg bg-[#FFF2E2] grow rounded-t-2xl mt-4">
+                  <div>
+                    <SearchAddressMenu profilesAllData={profilesAllData} />
+                  </div>
+                  <div>
+                    <Available />
+                  </div>
+                  <div>
+                    <FilterPrice />
+                  </div>
+                  <div>
+                    <Alergens />
+                  </div>
+                  <div>
+                    <StarRaitingFilter />
+                  </div>
+                  <div>
+                    <DiliveryFilter />
+                  </div>
+                  <div className="flex justify-center pb-5">
+                    <ResetButton />
+                  </div>
+                </div>
+              </ModalBody>
+              <ModalFooter>
+                <Button variant="ghost" onClick={onClose}>
+                  Close
+                </Button>
+              </ModalFooter>
+            </ModalContent>
+          </Modal>
+        </div>
+        <div className="flex flex-wrap xl:w-10/12 w-12/12 xl:mx-auto xl:ml-5 justify-center pb-10">
+          {recipesData.slice(0, showingRecipes).map((recipe: Recipes) => {
             return <CardRecipes recipesData={recipe} key={recipe.id} />;
           })}
+          <div className="flex justify-center py-8">
+            {recipesData.length > showingRecipes && (
+              <div className="text-center mt-4">
+                <button
+                  className="text-white text-center  bg-OrangeSecondary rounded-[20px] px-8 py-2 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
+                  onClick={handleShowMore}
+                >
+                  Покажи Повеќе
+                </button>
+              </div>
+            )}
+            <h2 className="text-center text-2xl font-semibold">{message}</h2>
+          </div>
         </div>
-        <h2 className="text-center text-2xl font-semibold">{message}</h2>
       </section>
     </div>
   );
@@ -83,6 +177,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     price,
     allergens,
     rating,
+    delivery,
   } = ctx.query;
 
   const matchFilter: Record<string, any> = {};
@@ -112,6 +207,10 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   }
   if (rating) {
     matchFilter.raiting = rating;
+  }
+
+  if (delivery) {
+    matchFilter.delivery = delivery;
   }
 
   let query = supabase.from("recipes").select(
