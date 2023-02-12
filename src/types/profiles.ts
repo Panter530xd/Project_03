@@ -24,5 +24,13 @@ export interface Recipes {
     price:number;
     delivery:boolean;
     delivery_time:string;
-
+    cuisine: string ;
+    selected_date: number ;
+    available:string;
+    recipe_address:string;
+    allergens:boolean;
+     [x: string]: any;
+     profiles:{
+        avatar_url:string
+     }
 }

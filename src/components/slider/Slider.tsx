@@ -21,18 +21,18 @@ const Slider = () => {
   useEffect(() => {
     const selectedDate = (router.query.selectedDate as string) || "0";
     setSelectedRecipeId(selectedDate);
-  }, []);
+  }, [router.query.selectedDate]);
 
   const handleSlideClick = (index: number) => {
     setSelectedRecipeId(index.toString());
     router.push({
       pathname: router.pathname,
-      query: { selectedDate: index.toString() },
+      query: { ...router.query, selectedDate: index.toString() },
     });
   };
 
   return (
-    <div className=" xl:w-5/12 w-10/12 mx-auto py-20">
+    <div className=" xl:w-5/12 w-10/12 mx-auto xl:py-20 pb-10">
       <Splide
         options={{
           rewind: true,

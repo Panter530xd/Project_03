@@ -1,26 +1,30 @@
 /* eslint-disable @next/next/no-img-element */
-import { NextPage } from "next";
 import { Profiles } from "@/types/profiles";
 import StarOutline from "../../../public/images/Icons/starborder.svg";
 import StarIconFull from "../../../public/images/Icons/fullstar.svg";
 import { Key } from "react";
 import LocationAddress from "../../../public/images/Icons/location.svg";
 import Link from "next/link";
-
+import PremiumIcon from "../../../public/images/Icons/premium.svg";
 interface Props {
   profile: Profiles;
 }
 
-const CardCooks: NextPage<Props> = ({ profile }) => {
+const CardCooks = ({ profile }: Props) => {
   const cuisines = JSON.parse(profile.user_cusine);
   return (
     <div className="w-full md:w-1/3 p-6 flex flex-col transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
-      <div className="flex-1 rounded-t-3xl rounded-b-none overflow-hidden shadow-lg">
+      <div className="flex-1 rounded-t-3xl rounded-b-none overflow-hidden shadow-lg relative -z-10">
         <img
           src={profile.avatar_url}
           alt={profile.full_name}
           className="h-56 w-full object-cover"
         />
+        {profile.averageRating === 3 && (
+          <div className="absolute top-0 right-0">
+            <PremiumIcon />
+          </div>
+        )}
       </div>
       <div className=" bg-[#FFF2E2] rounded-t-3xl -mt-6 shadow-lg ">
         <div className="xl:px-8 px-3 pt-3 flex justify-between rounded-t-2xl ">

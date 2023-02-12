@@ -475,8 +475,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     };
   });
 
-  console.log(userProfiles);
-
   return {
     props: {
       profilesData,
