@@ -54,9 +54,9 @@ export default function Header() {
           </li>
           <li className="mr-4 pt-3 ">
             <Link
-              href="/cooks"
+              href="/gotvachi"
               className={`text-hederColor text-lg  ${
-                asPath === "/cooks" ? "text-active" : ""
+                asPath === "/gotvachi" ? "text-active" : ""
               }`}
             >
               <SecondIcon

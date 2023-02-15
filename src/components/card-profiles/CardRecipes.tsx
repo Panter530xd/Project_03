@@ -14,7 +14,7 @@ interface Props {
 
 const CardCooks = ({ recipesData }: Props) => {
   return (
-    <div className="w-full md:w-1/3 p-4 flex flex-col transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+    <div className="w-full md:w-1/3 p-4 flex flex-col xl:flex-grow-0 xl:flex-shrink-0 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 ">
       <div className="flex-1 rounded-t-3xl rounded-b-none overflow-hidden shadow-lg relative -z-10 ">
         <img
           src={recipesData.img}
@@ -27,8 +27,8 @@ const CardCooks = ({ recipesData }: Props) => {
           <NoDiliveryIcon className="absolute top-0 left-0" />
         )}
       </div>
-      <div className=" bg-[#FFF2E2] rounded-t-[35px] rounded-b-[35px] -mt-6 shadow-lg ">
-        <div className="pr-3 xl:pl-0 grid grid-cols-3 justify-between items-center">
+      <div className=" bg-[#FFF2E2] rounded-t-[35px] rounded-b-[35px] -mt-6 shadow-lg  ">
+        <div className="pr-3 xl:pl-0 grid grid-cols-3 justify-between items-center ">
           <div>
             <img
               className="w-20 h-20 rounded-full"
@@ -38,11 +38,11 @@ const CardCooks = ({ recipesData }: Props) => {
           </div>
           <div>
             <div>
-              <h4 className="text-lg -ml-7 font-medium text-gray-900 truncate text-ellipsis">
+              <h4 className="text-lg -ml-7 font-medium text-gray-900 truncate text-ellipsis -mt-2 pb-1">
                 {recipesData.title}
               </h4>
             </div>
-            <div className="flex -ml-7">
+            <div className="flex -ml-7 -mt-2">
               {[...Array(5)].map((_, index) =>
                 index < recipesData?.raiting ? (
                   <StarIconFull key={index} width={22} height={23} />
@@ -68,11 +68,11 @@ const CardCooks = ({ recipesData }: Props) => {
             </div>
             <div className="flex justify-center pr-8 xl:pt-0 pt-3 relative">
               <Link href="/gotvaci">
-                <button className="  bg-OrangeSecondary  text-white rounded-[20px] xl:px-[30px] px-[27px] py-[5px] text-sm whitespace-nowrap">
+                <button className="  bg-OrangeSecondary  text-white rounded-[20px] xl:pl-[20px] xl:pr-10 pl-[15px] pr-10 py-[5px] text-sm whitespace-nowrap">
                   Во кошничка
                 </button>
               </Link>
-              <ShopingIcon className="absolute xl:top-[7px] top-[18px] xl:right-[7px] right-[7px]" />
+              <ShopingIcon className="absolute xl:top-[7px] top-[18px] xl:right-[12px] right-[15px]" />
             </div>
           </div>
         </div>

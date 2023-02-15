@@ -19,11 +19,13 @@ import SearchAddress from "@/components/search-address/SearchAddress";
 interface Props {
   userProfiles: Profiles[];
   profilesAllData: Profiles[];
+  filteredProfilesByQuery: [];
 }
 
 export default function Home({
   userProfiles,
   profilesAllData,
+  filteredProfilesByQuery,
 }: Props): JSX.Element {
   return (
     <>
@@ -471,7 +473,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const userProfiles = profilesData?.map((profile) => {
     return {
       ...profile,
-      averageRating: accumulatedRatingsPerProfile[profile.id],
+      averageRating: accumulatedRatingsPerProfile[profile.id]
+        ? accumulatedRatingsPerProfile[profile.id]
+        : null,
     };
   });
 

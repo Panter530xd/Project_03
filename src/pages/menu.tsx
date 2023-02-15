@@ -142,7 +142,7 @@ const MenuPage: NextPage<Props> = ({
             </ModalContent>
           </Modal>
         </div>
-        <div className="flex flex-wrap xl:w-10/12 w-12/12 xl:mx-auto xl:ml-5 justify-center pb-10">
+        <div className="flex flex-wrap xl:w-10/12 w-12/12 xl:mx-auto xl:ml-5 justify-center pb-10  h-fit">
           {recipesData.slice(0, showingRecipes).map((recipe: Recipes) => {
             return <CardRecipes recipesData={recipe} key={recipe.id} />;
           })}

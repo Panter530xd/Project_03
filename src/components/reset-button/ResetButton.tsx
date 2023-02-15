@@ -4,7 +4,7 @@ const ResetButton = () => {
   const router = useRouter();
 
   const handleReset = () => {
-    router.push("/menu");
+    router.push({ pathname: router.pathname });
   };
 
   return (

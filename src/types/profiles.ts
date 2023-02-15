@@ -10,6 +10,7 @@ export interface Profiles {
     user_adress: string;
     email: string;
     user_cusine: string;
+    averageRating:number;
     recipeList: Recipes[];
    
 }

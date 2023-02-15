@@ -4,7 +4,7 @@ import {
   Session,
 } from "@supabase/auth-helpers-react";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Database } from "@/database/types";
 import { useRouter } from "next/router";
 import { GetServerSideProps } from "next";

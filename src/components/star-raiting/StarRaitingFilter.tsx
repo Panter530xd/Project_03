@@ -18,6 +18,10 @@ const StarRaitingFilter = () => {
   };
   return (
     <>
+      <div className="w-10/12 mx-auto pb-4">
+        <h3 className="text-lg text-black">Покажи по рејтинг:</h3>
+      </div>
+
       <div className="mx-auto flex justify-center">
         <div className="grid grid-cols-2 mx-auto justify-center items-center">
           <div>
