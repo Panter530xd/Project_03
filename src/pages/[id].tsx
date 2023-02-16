@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { supabase } from "../pages/utils/suapbase";
+
 import { GetServerSideProps, NextPage } from "next";
 import { Profiles } from "@/types/profiles";
 import Image from "next/image";
