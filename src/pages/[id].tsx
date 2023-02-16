@@ -13,6 +13,7 @@ import ShareButton from "@/components/shared/ShareButton";
 import SingleStarIcon from "../../public/images/Icons/star.svg";
 import PreglediIcon from "../../public/images/Icons/pregledi.svg";
 import DostaviiIcon from "../../public/images/Icons/dostavi.svg";
+import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
 interface Props {
   Cooks: Profiles;
 }
@@ -134,8 +135,9 @@ const CooksPage: NextPage<Props> = ({ Cooks }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  const { id } = query;
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const supabase = createServerSupabaseClient(ctx);
+  const { id } = ctx.query;
   const { data: cooksData, error } = await supabase
     .from("profiles")
     .select("*")
