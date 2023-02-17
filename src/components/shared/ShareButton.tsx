@@ -85,7 +85,7 @@ const ShareButton = () => {
 
           <ModalFooter>
             <Button variant="ghost" mr={3} onClick={onClose}>
-              Close
+              Откажи
             </Button>
           </ModalFooter>
         </ModalContent>

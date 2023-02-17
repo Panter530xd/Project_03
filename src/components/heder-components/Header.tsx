@@ -61,7 +61,7 @@ export default function Header() {
             >
               <SecondIcon
                 className={`mx-auto ${
-                  asPath === "/cooks"
+                  asPath === "/gotvachi"
                     ? "text-active fill-active stroke-active stroke-2"
                     : "fill-none"
                 }`}

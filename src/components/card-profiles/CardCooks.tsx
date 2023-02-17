@@ -61,7 +61,7 @@ const CardCooks = ({ profile }: Props) => {
         </div>
         <div className="flex justify-end pr-4 pb-5 xl:pt-0 pt-3">
           <Link
-            href={`/${profile.id}`}
+            href={`${profile.id}`}
             className="text-right border-2 border-OrangePrimary rounded-[20px] px-4 py-1"
           >
             Дознај повеќе...

@@ -18,6 +18,7 @@ import CardRecipesCook from "@/components/card-profiles/CardRecipesCook";
 import CardRecipesStatic from "@/components/card-profiles/CardRecipesStatic";
 import CardStaticDeserds from "@/components/card-profiles/CardStaticDeserds";
 import SliderComments from "@/components/slider/SliderComments";
+import ResetDateCook from "@/components/reset-button/ResetDateCook";
 
 interface Props {
   Cooks: Profiles;
@@ -26,9 +27,9 @@ interface Props {
 }
 
 const CooksPage: NextPage<Props> = ({ Cooks, gurmansWithReviews }) => {
-  const { recipes } = Cooks;
+  const { filterMessage, filteredRecipes } = Cooks;
   const cuisines = JSON.parse(Cooks.user_cusine);
-  console.log(gurmansWithReviews);
+
   return (
     <div>
       <div>
@@ -145,15 +146,24 @@ const CooksPage: NextPage<Props> = ({ Cooks, gurmansWithReviews }) => {
         <Slider />
       </div>
       <div className="  bg-[#f8f1e9] py-20">
-        <div className="w-10/12 mx-auto">
+        <div className="xl:w-10/12 mx-auto">
           <h3 className="xl:text-2xl font-semibold text-OrangeSecondary pl-7">
             ДОСТАПНИ ЈАДЕЊА ЗА НЕДЕЛА
           </h3>
           <div className="flex flex-wrap py-10">
-            {recipes.slice(0, 3).map((recipe: Recipes) => {
+            {filteredRecipes?.slice(0, 3).map((recipe: Recipes) => {
               return <CardRecipesCook recipe={recipe} key={recipe.id} />;
             })}
+            <div className=" w-7/12 mx-auto">
+              <h2 className="flex justify-center xl:text-2xl text-OrangeSecondary font-semibold">
+                {filterMessage}
+              </h2>
+              <div className="flex justify-center pt-3">
+                <ResetDateCook />
+              </div>
+            </div>
           </div>
+
           <h3 className="xl:text-2xl font-semibold text-black pl-7">
             ПРЕДЛОГ ДОДАТОЦИ КОН ЈАДЕЊАТА ЗА НЕДЕЛА
           </h3>
@@ -258,12 +268,35 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const totalRatings = ratings?.reduce((sum, rating) => sum + rating, 0) || 0;
   const averageRating = totalRatings / numberOfRatings || 0;
 
+  const { selectedDate } = ctx.query;
+  let query = supabase.from("recipes").select("*").eq("profiles_id", id);
+  const matchFilter: Record<string, any> = {};
+
+  if (selectedDate) {
+    matchFilter.selected_date = selectedDate;
+  }
+
+  if (Object.keys(matchFilter).length > 0) {
+    query = query.match(matchFilter);
+  }
+
+  let { data: recipesFilteredData } = await query;
+
+  let message = "";
+
+  if (recipesFilteredData?.length === 0) {
+    message = "Нема достапни рецепти за избраниот датум.";
+  }
+
+  console.log("filter", recipesFilteredData);
   return {
     props: {
       Cooks: {
         ...cooksData,
         averageRating,
         recipes: recipesAllData,
+        filteredRecipes: recipesFilteredData,
+        filterMessage: message,
       },
       gurmansWithReviews,
     },

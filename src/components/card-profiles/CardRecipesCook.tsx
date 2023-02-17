@@ -61,7 +61,7 @@ const CardRecipesCook = ({ recipe }: Props) => {
 
         <div className="flex justify-center py-5 ">
           <Link
-            href={`/${recipe.id}`}
+            href={`/gotvachi/${recipe.id}`}
             className="text-white bg-OrangeSecondary rounded-[20px] px-4 py-2"
           >
             Додај во кошничка
