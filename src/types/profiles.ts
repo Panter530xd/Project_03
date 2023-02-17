@@ -35,3 +35,42 @@ export interface Recipes {
         avatar_url:string
      }
 }
+
+
+export interface GurmanInterface{
+    reviews: any;  
+  id: string,
+  updated_at: null,
+  username: string,
+  full_name: string,
+  avatar_url: string
+  website: null,
+  user_tipe: string,
+  user_adress: string,
+  user_email: null,
+  user_tel: string,
+  user_age: string,
+  user_cusine: string,
+   gurmanReviews:{
+    map(arg0: (review: ReviewInterface) => JSX.Element): any;
+    id: number,
+    created_at: string,
+    comment: string
+    review:number,
+    profile_id: string
+}
+ 
+}
+
+ export interface ReviewInterface {
+    id: number,
+    created_at: string,
+    comment: string
+    review:number,
+    profile_id: string
+}
+
+  
+   
+  
+

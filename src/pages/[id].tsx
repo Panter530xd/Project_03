@@ -1,10 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { GetServerSideProps, NextPage } from "next";
-import { Profiles } from "@/types/profiles";
+import { GurmanInterface, Profiles, Recipes } from "@/types/profiles";
 import Image from "next/image";
 import MessageIcon from "../../public/images/Icons/message-icon.svg";
-import ShareIcon from "../../public/images/Icons/share-icon.svg";
 import { Key } from "react";
 import LocationAddress from "../../public/images/Icons/location-big.svg";
 import Location from "../../public/images/Icons/entypo_location-pin.svg";
@@ -14,14 +13,22 @@ import SingleStarIcon from "../../public/images/Icons/star.svg";
 import PreglediIcon from "../../public/images/Icons/pregledi.svg";
 import DostaviiIcon from "../../public/images/Icons/dostavi.svg";
 import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
+import Slider from "@/components/slider/Slider";
+import CardRecipesCook from "@/components/card-profiles/CardRecipesCook";
+import CardRecipesStatic from "@/components/card-profiles/CardRecipesStatic";
+import CardStaticDeserds from "@/components/card-profiles/CardStaticDeserds";
+import SliderComments from "@/components/slider/SliderComments";
+
 interface Props {
   Cooks: Profiles;
+  recipes: Recipes[];
+  gurmansWithReviews: GurmanInterface[];
 }
 
-const CooksPage: NextPage<Props> = ({ Cooks }) => {
+const CooksPage: NextPage<Props> = ({ Cooks, gurmansWithReviews }) => {
   const { recipes } = Cooks;
   const cuisines = JSON.parse(Cooks.user_cusine);
-  console.log(Cooks);
+  console.log(gurmansWithReviews);
   return (
     <div>
       <div>
@@ -33,7 +40,7 @@ const CooksPage: NextPage<Props> = ({ Cooks }) => {
           className="object-cover w-full"
         />
       </div>
-      <div className=" pb-28">
+      <div className="pb-10">
         <div>
           <div className=" xl:grid xl:grid-cols-4 xl:gap-2 w-11/12 mx-auto py-7 justify-end items-center">
             <div>
@@ -131,6 +138,42 @@ const CooksPage: NextPage<Props> = ({ Cooks }) => {
           </p>
         </div>
       </div>
+      <div className="text-center ">
+        <h3 className="xl:text-2xl font-bold text-black pb-4 xl:pb-0">
+          Одбери датум:
+        </h3>
+        <Slider />
+      </div>
+      <div className="  bg-[#f8f1e9] py-20">
+        <div className="w-10/12 mx-auto">
+          <h3 className="xl:text-2xl font-semibold text-OrangeSecondary pl-7">
+            ДОСТАПНИ ЈАДЕЊА ЗА НЕДЕЛА
+          </h3>
+          <div className="flex flex-wrap py-10">
+            {recipes.slice(0, 3).map((recipe: Recipes) => {
+              return <CardRecipesCook recipe={recipe} key={recipe.id} />;
+            })}
+          </div>
+          <h3 className="xl:text-2xl font-semibold text-black pl-7">
+            ПРЕДЛОГ ДОДАТОЦИ КОН ЈАДЕЊАТА ЗА НЕДЕЛА
+          </h3>
+          <div className="flex flex-wrap py-10">
+            <CardRecipesStatic />
+          </div>
+          <h3 className="xl:text-2xl font-semibold text-black pl-7">
+            ПРЕДЛОГ ДЕСЕРТИ ЗА НЕДЕЛА
+          </h3>
+          <div className="flex flex-wrap py-10">
+            <CardStaticDeserds />
+          </div>
+          <div>
+            <h3 className="xl:text-2xl font-semibold text-black pl-7">
+              ПРЕПОРАКИ ЗА ЈАДЕЊАТА НА ГОТВАЧОТ ОД ПРЕТХОДНИ КОРИСНИЦИ (12)
+            </h3>
+            {<SliderComments gurmansWithReviews={gurmansWithReviews} />}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
@@ -172,6 +215,44 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     };
   }
 
+  const { data: gurmanData, error: gurmanDataError } = await supabase
+    .from("profiles")
+    .select("*")
+    .eq("user_tipe", "gurman");
+
+  if (gurmanDataError) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const gurmanIds = gurmanData.map((gurman) => gurman.id);
+
+  const { data: reviewsData, error: reviewsError } = await supabase
+    .from("reviews")
+    .select("*")
+    .in("profile_id", gurmanIds);
+
+  if (reviewsError) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const gurmansWithReviews = gurmanData.map((gurman) => {
+    const gurmanReviews = reviewsData.filter(
+      (review) => review.profile_id === gurman.id
+    );
+
+    console.log("gurman", gurman);
+    console.log("gurmanReviews", gurmanReviews);
+
+    return {
+      ...gurman,
+      reviews: gurmanReviews,
+    };
+  });
+
   const ratings = recipesData?.map((recipe) => recipe.raiting);
   const numberOfRatings = ratings?.length || 0;
   const totalRatings = ratings?.reduce((sum, rating) => sum + rating, 0) || 0;
@@ -184,6 +265,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
         averageRating,
         recipes: recipesAllData,
       },
+      gurmansWithReviews,
     },
   };
 };
