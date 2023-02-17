@@ -177,7 +177,7 @@ const CooksPage: NextPage<Props> = ({ Cooks, gurmansWithReviews }) => {
             <CardStaticDeserds />
           </div>
           <div>
-            <h3 className="xl:text-2xl font-semibold text-black pl-7">
+            <h3 className="xl:text-2xl font-semibold text-black pl-7 pb-12 xl:pb-0">
               ПРЕПОРАКИ ЗА ЈАДЕЊАТА НА ГОТВАЧОТ ОД ПРЕТХОДНИ КОРИСНИЦИ (12)
             </h3>
             {<SliderComments gurmansWithReviews={gurmansWithReviews} />}
