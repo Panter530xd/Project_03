@@ -4,7 +4,7 @@ import { GetServerSideProps, NextPage } from "next";
 import { GurmanInterface, Profiles, Recipes } from "@/types/profiles";
 import Image from "next/image";
 import MessageIcon from "../../public/images/Icons/message-icon.svg";
-import { Key } from "react";
+import { Key, useEffect, useRef } from "react";
 import LocationAddress from "../../public/images/Icons/location-big.svg";
 import Location from "../../public/images/Icons/entypo_location-pin.svg";
 import Link from "next/link";
@@ -24,12 +24,26 @@ interface Props {
   Cooks: Profiles;
   recipes: Recipes[];
   gurmansWithReviews: GurmanInterface[];
+  onClick: () => void;
+  quantity: number;
+  key: number;
 }
 
-const CooksPage: NextPage<Props> = ({ Cooks, gurmansWithReviews }) => {
+const CooksPage: NextPage<Props> = ({
+  Cooks,
+  recipes,
+  gurmansWithReviews,
+  onClick,
+  quantity,
+}) => {
   const { filterMessage, filteredRecipes } = Cooks;
   const cuisines = JSON.parse(Cooks.user_cusine);
-
+  const resultsRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (resultsRef.current) {
+      resultsRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [Cooks, gurmansWithReviews]);
   return (
     <div>
       <div>
@@ -145,14 +159,21 @@ const CooksPage: NextPage<Props> = ({ Cooks, gurmansWithReviews }) => {
         </h3>
         <Slider />
       </div>
-      <div className="  bg-[#f8f1e9] py-20">
+      <div ref={resultsRef} className="  bg-[#f8f1e9] py-20">
         <div className="xl:w-10/12 mx-auto">
           <h3 className="xl:text-2xl font-semibold text-OrangeSecondary pl-7">
             ДОСТАПНИ ЈАДЕЊА ЗА НЕДЕЛА
           </h3>
           <div className="flex flex-wrap py-10">
             {filteredRecipes?.slice(0, 3).map((recipe: Recipes) => {
-              return <CardRecipesCook recipe={recipe} key={recipe.id} />;
+              return (
+                <CardRecipesCook
+                  onClick={onClick}
+                  quantity={quantity}
+                  recipe={recipe}
+                  key={recipe.id}
+                />
+              );
             })}
             <div className=" w-7/12 mx-auto">
               <h2 className="flex justify-center xl:text-2xl text-OrangeSecondary font-semibold">

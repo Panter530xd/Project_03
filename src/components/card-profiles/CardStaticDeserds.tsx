@@ -13,7 +13,7 @@ const CardStaticDeserds = () => {
       <div className="w-full md:w-1/3 p-6 flex flex-col transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
         <div className="flex-1 rounded-t-3xl rounded-b-none overflow-hidden  relative ">
           <img
-            src="/images/images-static/shopska.png"
+            src="/images/images-static/gurabii.png"
             alt="Shopska"
             className="h-56 w-full object-cover"
           />
@@ -28,7 +28,7 @@ const CardStaticDeserds = () => {
           <div className="xl:px-8 px-3 pt-3 flex justify-between rounded-t-2xl ">
             <div>
               <h2 className="text-lg title-font font-medium text-gray-900 mb-3">
-                Шопска салата
+                Гурабии
               </h2>
               <div className="flex">
                 <FourStar />
@@ -41,8 +41,8 @@ const CardStaticDeserds = () => {
               Состав на порцијата:
               <br />
               <span className="font-normal">
-                Шопската салата е една од најубавите македонски традиционални
-                салати. Името го добила според словенското Шопи.
+                1чаша кисело млеко 1чаша свинска маст или маргарин 1чаша шекер 2
+                јајца 3-4чаши брашно 1 пециво 1 ванила
               </span>
             </h5>
           </div>
@@ -64,7 +64,7 @@ const CardStaticDeserds = () => {
       <div className="w-full md:w-1/3 p-6 flex flex-col transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
         <div className="flex-1 rounded-t-3xl rounded-b-none overflow-hidden  relative ">
           <img
-            src="/images/images-static/ajvar.png"
+            src="/images/images-static/oblandi.png"
             alt="Shopska"
             className="h-56 w-full object-cover"
           />
@@ -79,7 +79,7 @@ const CardStaticDeserds = () => {
           <div className="xl:px-8 px-3 pt-3 flex justify-between rounded-t-2xl ">
             <div>
               <h2 className="text-lg title-font font-medium text-gray-900 mb-3">
-                Ајвар
+                Обланди
               </h2>
               <div className="flex">
                 <FiveStar />
@@ -92,8 +92,9 @@ const CardStaticDeserds = () => {
               Состав на порцијата:
               <br />
               <span className=" font-normal">
-                500 милилитри масло; 1 голема лажица шеќер Сол по вкус. Испечете
-                ги пиперките, па потоа излупете им ја кората и исчистете.
+                300 мл вода 200 грама шеќер 100 грама чоколада за готвење 250
+                грама маргарин 400 грама ореви 400 грама бисквити 2 лажици какао
+                1 паковање обланди
               </span>
             </h5>
           </div>
@@ -115,7 +116,7 @@ const CardStaticDeserds = () => {
       <div className="w-full md:w-1/3 p-6 flex flex-col transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
         <div className="flex-1 rounded-t-3xl rounded-b-none overflow-hidden  relative ">
           <img
-            src="/images/images-static/vitaminska.png"
+            src="/images/images-static/baklavi.png"
             alt="Shopska"
             className="h-56 w-full object-cover"
           />
@@ -130,7 +131,7 @@ const CardStaticDeserds = () => {
           <div className="xl:px-8 px-3 pt-3 flex justify-between rounded-t-2xl ">
             <div>
               <h2 className="text-lg title-font font-medium text-gray-900 mb-3">
-                Витаминска салата
+                Баклава
               </h2>
               <div className="flex">
                 <FourStar />
@@ -143,9 +144,8 @@ const CardStaticDeserds = () => {
               Состав на порцијата:
               <br />
               <span className=" font-normal">
-                Исклучително здрава и вкусна мешавина од цвекло, морков,
-                роквица, и слатка пченка. И сето тоа зачинето со свеж лук и сок
-                од лимон.
+                1кг шеќер 200гр гриз 100гр чоколадо 250 гр мелени ореви 500гр
+                кори оризарски 800 мл вода 100 мл масло
               </span>
             </h5>
           </div>

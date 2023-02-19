@@ -10,12 +10,20 @@ import SearchIcon from "/public/images/Icons/ei_search.svg";
 import HamburgerIcon from "/public/images/Icons/bars-solid.svg";
 import CanselIcon from "/public/images/Icons/xmark-solid.svg";
 import { useState } from "react";
-import Cart from "./Cart";
 import UserCreateAccount from "./UserCreateAccount";
+import Card from "./Cart";
+import { Recipes } from "@/types/profiles";
+import SearchAll from "./SearchAll";
+interface Props {
+  recipe: Recipes;
+  quantity: number;
+  onClick: () => void;
+}
 
-export default function Header() {
+export default function Header({ recipe }: Props) {
   const { asPath } = useRouter();
   const [navbar, setNavbar] = useState(false);
+
   return (
     <nav className="bg-[#F1F1F1] shadow-xl p-3 flex xl:min-w-full w-full  xl:items-center xl:justify-center ">
       <Link
@@ -35,14 +43,14 @@ export default function Header() {
         <ul className="h-screen md:h-auto justify-center md:flex text-center xl:items-center absolute xl:static ">
           <li className="mr-4 pt-3">
             <Link
-              href="/kako-funkcionira"
+              href="/kako_funkcionira_gotvachi"
               className={`text-hederColor text-lg ${
-                asPath === "/kako-funkcionira" ? "text-active" : ""
+                asPath === "/kako_funkcionira_gotvachi" ? "text-active" : ""
               }`}
             >
               <FirstIcon
                 className={`mx-auto ${
-                  asPath === "/kako-funkcionira"
+                  asPath === "/kako_funkcionira_gotvachi"
                     ? "text-active fill-active stroke-active stroke-2"
                     : "fill-none"
                 }`}
@@ -73,14 +81,14 @@ export default function Header() {
           </li>
           <li className="mr-4 pt-3">
             <Link
-              href="/offer"
+              href=""
               className={`text-hederColor text-lg ${
-                asPath === "/offer" ? "text-active" : ""
+                asPath === "" ? "text-active" : ""
               }`}
             >
               <OfferIcon
                 className={`mx-auto ${
-                  asPath === "/offer"
+                  asPath === ""
                     ? "text-active fill-active stroke-active stroke-2"
                     : "fill-none"
                 }`}
@@ -111,14 +119,14 @@ export default function Header() {
           </li>
           <li className="pt-5">
             <Link
-              href="/forum"
+              href=""
               className={`text-hederColor text-lg ${
-                asPath === "/forum" ? "text-active" : ""
+                asPath === "" ? "text-active" : ""
               }`}
             >
               <ForumIcon
                 className={`mx-auto ${
-                  asPath === "/forum"
+                  asPath === ""
                     ? " fill-active stroke-active stroke-2"
                     : "fill-none"
                 }`}
@@ -130,33 +138,14 @@ export default function Header() {
           </li>
         </ul>
       </div>
-      <div className="flex justify-center shedow-xl xl:pr-20 xl:pl-56 pt-4 xl:pt-0">
-        <form className="shedow-xl">
-          <div className="relative text-gray-600 focus-within:text-gray-400">
-            <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-              <button
-                type="submit"
-                className="p-1 focus:outline-none focus:shadow-outline"
-              >
-                <SearchIcon className="mx-auto" width={28} height={28} />
-              </button>
-            </span>
-            <input
-              type="search"
-              name="q"
-              className="py-2 text-sm text-hederColor rounded-[20px] pl-10 border border-hederColor focus:outline-none focus:bg-white focus:text-gray-900 xl:w-96 w-28 xl:h-10 placeholder:text-xs xl:placeholder:text-lg"
-              placeholder="Пребарај..."
-            />
-          </div>
-        </form>
-      </div>
+      <SearchAll />
 
       <ul className="flex">
         <li className="xl:mr-4">
           <UserCreateAccount />
         </li>
         <li className="xl:pt-5 pt-3 mr-2">
-          <Cart />
+          <Card recipe={recipe} />
         </li>
       </ul>
 

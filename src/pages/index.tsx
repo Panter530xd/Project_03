@@ -240,6 +240,7 @@ export default function Home({
           </div>
         </div>
       </div>
+
       <div className="grid xl:grid-cols-3 xl:gap-10 xl:content-center gap-10 xl:py-40 py-20 items-end w-11/12 mx-auto">
         <div className="shadow-2xl rounded p-4 ">
           <Image
