@@ -18,9 +18,11 @@ import Link from "next/link";
 
 interface Props {
   recipe: Recipes;
+  quantity: number;
+  onClick: () => void;
 }
 
-export default function Card({ recipe }: Props) {
+export default function Card({ recipe, quantity, onClick }: Props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { cart, clearCart } = useCart();
   const numItemsInCart = cart.length;
@@ -78,7 +80,6 @@ export default function Card({ recipe }: Props) {
                       <div>
                         <p className="pb-3">{item.recipe.title}</p>
                         <p className="pb-3">
-                          {" "}
                           Количина {getItemQuantity(item.recipe.id)}
                         </p>
                         <p className="font-semibold text-black">

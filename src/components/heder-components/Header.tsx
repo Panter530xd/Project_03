@@ -20,7 +20,7 @@ interface Props {
   onClick: () => void;
 }
 
-export default function Header({ recipe }: Props) {
+export default function Header({ recipe, quantity, onClick }: Props) {
   const { asPath } = useRouter();
   const [navbar, setNavbar] = useState(false);
 
@@ -145,7 +145,7 @@ export default function Header({ recipe }: Props) {
           <UserCreateAccount />
         </li>
         <li className="xl:pt-5 pt-3 mr-2">
-          <Card recipe={recipe} />
+          <Card recipe={recipe} quantity={quantity} onClick={onClick} />
         </li>
       </ul>
 
