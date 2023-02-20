@@ -10,7 +10,7 @@ interface Props {
   profile: Profiles;
 }
 
-const CardCooks = ({ profile }: Props) => {
+const CardCookSearch = ({ profile }: Props) => {
   console.log(profile);
   const cuisines = profile.user_cusine ? JSON.parse(profile.user_cusine) : [];
 
@@ -33,15 +33,6 @@ const CardCooks = ({ profile }: Props) => {
           <h2 className="text-lg title-font font-medium text-gray-900 mb-3">
             {profile.full_name}
           </h2>
-          <div className="flex">
-            {[...Array(5)].map((_, index) =>
-              index < profile.averageRating ? (
-                <StarIconFull key={index} width={22} height={23} />
-              ) : (
-                <StarOutline key={index} width={22} height={23} />
-              )
-            )}
-          </div>
         </div>
         <div className="xl:px-8 px-3  flex justify-between">
           <div>
@@ -61,7 +52,7 @@ const CardCooks = ({ profile }: Props) => {
         </div>
         <div className="flex justify-end pr-4 pb-5 xl:pt-0 pt-3">
           <Link
-            href={`${profile.id}`}
+            href={"/gotvachi"}
             className="text-right border-2 border-OrangePrimary rounded-[20px] px-4 py-1"
           >
             Дознај повеќе...
@@ -71,4 +62,4 @@ const CardCooks = ({ profile }: Props) => {
     </div>
   );
 };
-export default CardCooks;
+export default CardCookSearch;

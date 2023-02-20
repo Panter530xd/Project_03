@@ -1,18 +1,20 @@
-import { useRouter } from "next/router";
 import { ChangeEvent, FormEvent, useState } from "react";
+import { useRouter } from "next/router";
+
 import SearchIcon from "../../../public/images/Icons/ei_search.svg";
 
 const SearchAll = () => {
-  const [searchQuery, setSearchQuery] = useState("");
   const router = useRouter();
-
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(event.target.value);
-  };
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    router.push(`/menu?query=${searchQuery}`);
+    // Redirect to search page with search query as parameter
+    router.push(`/search?searchQuery=${searchQuery}`);
+  };
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(event.target.value);
   };
 
   return (
@@ -29,12 +31,12 @@ const SearchAll = () => {
               </button>
             </span>
             <input
-              type="text"
+              type="search"
               name=""
-              className="py-2 text-sm text-hederColor rounded-[20px] pl-10 border border-hederColor focus:outline-none focus:bg-white focus:text-gray-900 xl:w-96 w-28 xl:h-10 placeholder:text-xs xl:placeholder:text-lg"
-              placeholder="Пребарај..."
               value={searchQuery}
               onChange={handleChange}
+              className="py-2 text-sm text-hederColor rounded-[20px] pl-10 border border-hederColor focus:outline-none focus:bg-white focus:text-gray-900 xl:w-96 w-28 xl:h-10 placeholder:text-xs xl:placeholder:text-lg"
+              placeholder="Search..."
             />
           </div>
         </form>

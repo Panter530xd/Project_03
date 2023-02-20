@@ -33,7 +33,7 @@ const nextMonth = [...Array(31)].map((_, index) => {
   };
 });
 
-const CardCooks = ({ recipesData }: Props) => {
+const CardRecipes = ({ recipesData }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [quantity, setQuantity] = useState(0);
 
@@ -201,4 +201,4 @@ const CardCooks = ({ recipesData }: Props) => {
     </div>
   );
 };
-export default CardCooks;
+export default CardRecipes;
