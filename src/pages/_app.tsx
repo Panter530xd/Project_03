@@ -19,13 +19,13 @@ export default function App({
       supabaseClient={supabase}
       initialSession={pageProps.initialSession}
     >
-      <CartProvider>
-        <ChakraProvider>
+      <ChakraProvider>
+        <CartProvider>
           <Layout>
             <Component {...pageProps} />
           </Layout>
-        </ChakraProvider>
-      </CartProvider>
+        </CartProvider>
+      </ChakraProvider>
     </SessionContextProvider>
   );
 }
