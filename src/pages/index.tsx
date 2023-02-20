@@ -495,16 +495,11 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
   return {
     props: {
-      searchResults,
-    },
-  };
-
-  return {
-    props: {
       profilesData,
       recipesData,
       userProfiles,
       profilesAllData,
+      searchResults,
     },
   };
 };
