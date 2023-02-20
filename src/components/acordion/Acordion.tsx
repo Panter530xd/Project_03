@@ -53,7 +53,7 @@ export default function Acordion() {
       <Accordion
         open={open === 2}
         icon={<Icon id={2} open={open} />}
-        className="border border-OrangeSecondary px-8 py-2 rounded-[20px] mb-3"
+        className="border border-OrangeSecondary px-8  rounded-[20px] mb-3"
       >
         <AccordionHeader onClick={() => handleOpen(2)}>
           2. Како да променам коментар?
