@@ -22,7 +22,7 @@ interface Props {
   onClick: () => void;
 }
 
-export default function Card({ recipe, quantity, onClick }: Props) {
+export default function Card() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { cart, clearCart } = useCart();
   const numItemsInCart = cart.length;

@@ -15,13 +15,7 @@ import Card from "./Cart";
 import { Recipes } from "@/types/profiles";
 import SearchAll from "./SearchAll";
 
-interface Props {
-  recipe: Recipes;
-  quantity: number;
-  onClick: () => void;
-}
-
-export default function Header({ recipe, quantity, onClick }: Props) {
+export default function Header() {
   const { asPath } = useRouter();
   const [navbar, setNavbar] = useState(false);
 
@@ -146,7 +140,7 @@ export default function Header({ recipe, quantity, onClick }: Props) {
           <UserCreateAccount />
         </li>
         <li className="xl:pt-5 pt-3 mr-2">
-          <Card recipe={recipe} quantity={quantity} onClick={onClick} />
+          <Card />
         </li>
       </ul>
 
