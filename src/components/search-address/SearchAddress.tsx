@@ -58,7 +58,7 @@ const searchAddress = ({ profilesAllData }: Props) => {
     e.preventDefault();
     router.push({
       pathname: router.pathname,
-      query: { address: value },
+      query: { ...router.query, address: value },
     });
   };
 

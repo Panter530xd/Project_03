@@ -480,6 +480,25 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     };
   });
 
+  let searchResults = [];
+
+  const { data, error } = await supabase
+    .from("profiles")
+    .select()
+    .textSearch("user_adress", `'user_cusine' & 'full_name'`);
+
+  if (error) {
+    console.error(error);
+  } else {
+    searchResults = data;
+  }
+
+  return {
+    props: {
+      searchResults,
+    },
+  };
+
   return {
     props: {
       profilesData,

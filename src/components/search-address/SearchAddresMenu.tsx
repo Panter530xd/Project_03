@@ -64,7 +64,7 @@ const SearchAddressMenu = ({ profilesAllData }: Props) => {
     if (value) {
       router.push({
         pathname: router.pathname,
-        query: { address: value },
+        query: {  ...router.query, address: value },
       });
     }
   };
