@@ -172,7 +172,6 @@ const CardRecipesCook = ({ recipe }: Props) => {
               onClick={() => {
                 handleAddToCart(recipe, quantity);
                 handleClose();
-                console.log("recipe", recipe, "quantity", quantity);
               }}
               className=" w-full rounded-xl bg-OrangeSecondary text-white py-2 px-4"
             >

@@ -14,6 +14,7 @@ import UserCreateAccount from "./UserCreateAccount";
 import Card from "./Cart";
 import { Recipes } from "@/types/profiles";
 import SearchAll from "./SearchAll";
+
 interface Props {
   recipe: Recipes;
   quantity: number;
