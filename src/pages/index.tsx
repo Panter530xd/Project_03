@@ -72,7 +72,7 @@ export default function Home({
           </div>
           <SearchAddress profilesAllData={profilesAllData} />
         </div>
-        <div className="z-10 xl:w-12/12 w-9/12 mx-auto">
+        <div className="z-10">
           <Image
             priority
             src="/images/images-static/tavce gravce.png"
