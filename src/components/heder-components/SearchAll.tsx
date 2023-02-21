@@ -31,7 +31,7 @@ const SearchAll = () => {
               </button>
             </span>
             <input
-              type="search"
+              type="text"
               name=""
               value={searchQuery}
               onChange={handleChange}
