@@ -136,7 +136,7 @@ const MenuPage: NextPage<Props> = ({
               </ModalBody>
               <ModalFooter>
                 <Button variant="ghost" onClick={onClose}>
-                  Close
+                  Затвори
                 </Button>
               </ModalFooter>
             </ModalContent>

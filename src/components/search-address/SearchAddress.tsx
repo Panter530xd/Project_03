@@ -68,7 +68,7 @@ const searchAddress = ({ profilesAllData }: Props) => {
         onSubmit={handleSubmit}
         className="xl:flex items-center mx-auto justify-between"
       >
-        <div className="relative xl:flex items-center w-10/12 mx-auto">
+        <div className="relative xl:flex items-center w-10/12 xl:w-12/12 mx-auto">
           <input
             type="text"
             placeholder="Внеси адреса"
@@ -81,7 +81,7 @@ const searchAddress = ({ profilesAllData }: Props) => {
           <CheckIcon
             width={24}
             height={24}
-            className=" absolute  right-4 xl:bottom-[9px] bottom-[7px] mr-2"
+            className=" absolute xl:right-7 right-2 xl:bottom-[9px] bottom-[7px] mr-2"
           />
           <LocationIcon
             width={24}
