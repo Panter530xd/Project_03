@@ -68,7 +68,7 @@ const searchAddress = ({ profilesAllData }: Props) => {
         onSubmit={handleSubmit}
         className="xl:flex items-center mx-auto justify-between"
       >
-        <div className="relative xl:flex items-center  ">
+        <div className="relative xl:flex items-center w-10/12 mx-auto">
           <input
             type="text"
             placeholder="Внеси адреса"
@@ -103,10 +103,10 @@ const searchAddress = ({ profilesAllData }: Props) => {
           )}
         </div>
 
-        <div className="pt-5 xl:pt-0 flex justify-center">
+        <div className="pt-5 xl:pt-0 flex justify-center w-10/12 mx-auto">
           <button
             type="submit"
-            className=" py-2 bg-OrangePrimary shadow-lg text-white rounded-[20px]  xl:w-72 w-40 xl:h-10 font-medium text-sm xl:block text-center cursor-pointer"
+            className=" py-2 bg-OrangePrimary shadow-lg text-white rounded-[20px]  xl:w-72 w-full  xl:h-10 font-medium text-sm xl:block text-center cursor-pointer"
           >
             Погледни резултати
           </button>

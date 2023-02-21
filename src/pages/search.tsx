@@ -11,7 +11,7 @@ type SearchProps = {
 
 const Search: NextPage<SearchProps> = ({ searchResults, query }) => {
   return (
-    <div className=" xl:py-40 py-20 w-11/12 mx-auto ">
+    <div className=" xl:py-40 py-20">
       <div className=" flex justify-center">
         <h2 className=" xl:text-3xl text-lg font-semibold text-black pb-5">
           {searchResults.length > 0

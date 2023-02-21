@@ -36,7 +36,7 @@ const SearchAll = () => {
               value={searchQuery}
               onChange={handleChange}
               className="py-2 text-sm text-hederColor rounded-[20px] pl-10 border border-hederColor focus:outline-none focus:bg-white focus:text-gray-900 xl:w-96 w-28 xl:h-10 placeholder:text-xs xl:placeholder:text-lg"
-              placeholder="Search..."
+              placeholder="Пребарај..."
             />
           </div>
         </form>

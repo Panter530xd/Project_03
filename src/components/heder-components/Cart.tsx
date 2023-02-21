@@ -59,11 +59,11 @@ export default function Card() {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>Детали за картичка</DrawerHeader>
+          <DrawerHeader>Детали за кошничката</DrawerHeader>
 
           <DrawerBody>
             {cart.length === 0 ? (
-              <p>Картичката е Празна.</p>
+              <p>Кошничката е Празна.</p>
             ) : (
               <div>
                 {cart.map((item) => (

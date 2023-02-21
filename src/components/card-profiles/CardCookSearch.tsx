@@ -1,11 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import { Profiles } from "@/types/profiles";
-import StarOutline from "../../../public/images/Icons/starborder.svg";
-import StarIconFull from "../../../public/images/Icons/fullstar.svg";
 import { Key } from "react";
 import LocationAddress from "../../../public/images/Icons/location.svg";
 import Link from "next/link";
-import PremiumIcon from "../../../public/images/Icons/premium.svg";
 interface Props {
   profile: Profiles;
 }
@@ -22,11 +19,6 @@ const CardCookSearch = ({ profile }: Props) => {
           alt={profile.full_name}
           className="h-56 w-full object-cover"
         />
-        {profile.averageRating === 3 && (
-          <div className="absolute top-0 right-0">
-            <PremiumIcon />
-          </div>
-        )}
       </div>
       <div className=" bg-[#FFF2E2] rounded-t-3xl -mt-6 shadow-lg ">
         <div className="xl:px-8 px-3 pt-3 flex justify-between rounded-t-2xl ">

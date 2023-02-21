@@ -18,7 +18,7 @@ const CardRecipes = ({ recipe }: Props) => {
       <div className=" bg-[#FFF2E2]  rounded-b-[35px] py-5 shadow-lg  ">
         <div className=" px-5 grid grid-cols-2  ">
           <div>
-            <h4 className="text-lg font-medium text-gray-900 pb-1 whitespace-nowrap">
+            <h4 className="text-lg font-medium text-gray-900 pb-1 xl:whitespace-nowrap truncate">
               {recipe?.title}
             </h4>
             <div className="flex justify-between ">
@@ -32,7 +32,7 @@ const CardRecipes = ({ recipe }: Props) => {
           </div>
           <div>
             <div>
-              <h4 className="text-base text-right font-medium xl:mb-3  text-OrangeSecondary pr-3">
+              <h4 className="text-base text-right font-medium xl:mb-3  text-OrangeSecondary pr-3 pb-3 xl:pb-0">
                 {recipe?.price}ден
               </h4>
             </div>
