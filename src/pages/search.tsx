@@ -58,19 +58,14 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       searchQuery as string
     );
 
-  const { data: reviewsData, error: reviewsError } = await supabase
-    .from("reviews")
-    .select("*")
-    .textSearch("comment", searchQuery as string);
-
-  if (profilesError || recipesError || reviewsError) {
-    console.error(profilesError || recipesError || reviewsError);
+  if (profilesError || recipesError) {
+    console.error(profilesError || recipesError);
     return {
       notFound: true,
     };
   }
 
-  const searchResults = [...profilesData, ...recipesData, ...reviewsData];
+  const searchResults = [...profilesData, ...recipesData];
 
   return {
     props: {
