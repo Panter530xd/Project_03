@@ -37,7 +37,7 @@ const CardCookSearch = ({ profile }: Props) => {
               </p>
             ))}
           </div>
-          <div className="flex justify-between ">
+          <div className="flex justify-between items-center">
             <LocationAddress className="mr-3" />
             <h3>{profile.user_adress}</h3>
           </div>
