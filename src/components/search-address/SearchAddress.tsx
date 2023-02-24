@@ -57,7 +57,7 @@ const searchAddress = ({ profilesAllData }: Props) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     router.push({
-      pathname: router.pathname,
+      pathname: "/menu",
       query: { ...router.query, address: value },
     });
   };
